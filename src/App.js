@@ -20,7 +20,7 @@ class App extends Component {
         <div className="container">
           <Navbar />
 
-          <Switch>  //anonroute y privaterout sirven para que no salgan links al usuario que no tienen sentido (como el log in si ya están logueados)
+          <Switch> 
             <AnonRoute exact path="/" component={Home} />
             <AnonRoute exact path="/signup" component={Signup} />
             <AnonRoute exact path="/login" component={Login} />

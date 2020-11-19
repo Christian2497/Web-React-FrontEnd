@@ -1,38 +1,33 @@
 import axios from "axios";
-//cada uno de los métodos más abajo se conecta con el backend
 class Auth {
   constructor() {
     this.auth = axios.create({
-      baseURL: "http://localhost:4000",//esta es la URL del servidor del backend, y esta base haciendo esto así es como si estuviese delante de los paths de los métodos más abajo.
-      withCredentials: true,  //esto es para que cuando se contecte grabe una coockie que diga que estás autenticado (guarda tus credenciales).
+      baseURL: "http://localhost:4000",
+      withCredentials: true,  
     });
   }
 
-  signup({ username, password }) {
+  signup({ username, email, weight, goal, password, repeatPassword }) {
     return this.auth
-      .post("/auth/signup", { username, password })
+      .post("/signup", { username, email, weight, goal, password, repeatPassword  })
       .then(({ data }) => data);
-    // .then((response) => response.data);
   }
 
-  login({ username, password }) {
+  login({ email, password }) {
     return this.auth
-      .post("/auth/login", { username, password })
+      .post("/login", { email, password })
       .then(({ data }) => data);
-    // .then((response) => response.data);
   }
 
   logout() {
-    return this.auth.post("/auth/logout", {}).then(({ data }) => data);
-    // return this.auth.post("/auth/logout", {}).then((response) => response.data);
+    return this.auth.post("/logout", {}).then(({ data }) => data);
   }
 
-  me() { //este es el usuario activo
-    return this.auth.get("/auth/me").then(({ data }) => data);
-    // return this.auth.get("/auth/me").then((response) => response.data);
+  me() {
+    return this.auth.get("/me").then(({ data }) => data);
   }
 }
 
-const axiosRequestFunctions = new Auth();  //creamos un objeto en base a esta clase y más abajo lo exportamos en AuthProvider
+const axiosRequestFunctions = new Auth(); 
 
 export default axiosRequestFunctions;

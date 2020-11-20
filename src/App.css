@@ -1,31 +1,77 @@
+/* HTML RESET  */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* FONT */
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;500;800&display=swap');
+
 * {
-  margin: 0;
-  padding: 0;
+  font-family: 'Raleway', sans-serif;
 }
 
-.App {
-  padding: 20px;;
+/* NAVBAR */
+
+.navbar {
+  background-color: rgba(68, 192, 68, 0.815);
+  width: 100%;
+  padding-right: 3rem;
+  padding-left: 3rem;
+  font-family: 'Raleway', sans-serif;
 }
 
-nav.navbar { 
-  display: flex;
-  padding: 20px;
-  background: #686de0; 
+.nav-link {
+  margin-right: 2rem;
+  margin-left: 2rem;
 }
 
-nav.navbar .navbar-user{
-  margin-left: 10px;
-  color: white;
+.carousel-caption h5 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 28px black;
 }
-
-button.navbar-button {
-  padding: 5px 20px;
-  width: 100px;
-  border-radius: 3px;
-  margin: 0 10px;
-}
-
-#home-btn {
-  color: white;
-  text-decoration: none;
+.carousel-caption  {
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 28px black;
 }

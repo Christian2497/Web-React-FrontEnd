@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 // import '~video-react/dist/video-react.css';
-import { Player } from 'video-react';
+// import { Player } from 'video-react';
 import { Switch } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
@@ -20,9 +20,8 @@ class App extends Component {
   render() {
     return (
       <AuthProvider>
+      <Navbar />
         <div className="container">
-          <Navbar />
-
           <Switch> 
             <AnonRoute exact path="/" component={Home} />
             <AnonRoute exact path="/signup" component={Signup} />

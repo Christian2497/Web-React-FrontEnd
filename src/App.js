@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
+// import '~video-react/dist/video-react.css';
+import { Player } from 'video-react';
 import { Switch } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
@@ -14,6 +16,7 @@ import AnonRoute from "./components/AnonRoute";
 import PrivateRoute from "./components/PrivateRoute";
 
 class App extends Component {
+
   render() {
     return (
       <AuthProvider>

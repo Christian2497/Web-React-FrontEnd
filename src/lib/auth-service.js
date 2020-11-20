@@ -8,6 +8,12 @@ class Auth {
     });
   }
 
+  userInfo({ username, email, weight, goal }){
+    return this.auth
+    .get("/profile/:id", { username, email, weight, goal })
+    .then(({ data }) => data);
+  }
+
   signup({ username, email, weight, goal, password, repeatPassword }) {
     return this.auth
       .post("/signup", { username, email, weight, goal, password, repeatPassword  })

@@ -8,7 +8,7 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-import Private from "./pages/Private";
+import Profile from "./pages/Profile";
 
 import AuthProvider from "./lib/AuthProvider";
 
@@ -26,7 +26,7 @@ class App extends Component {
             <AnonRoute exact path="/" component={Home} />
             <AnonRoute exact path="/signup" component={Signup} />
             <AnonRoute exact path="/login" component={Login} />
-            <PrivateRoute exact path="/private" component={Private} />
+           {/*  <PrivateRoute exact path="/profile" component={Profile} /> */}
           </Switch>
         </div>
       </AuthProvider>

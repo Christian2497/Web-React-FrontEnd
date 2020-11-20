@@ -28,7 +28,12 @@ const withAuth = (WrappedComponent) => {
 
 // Provider
 class AuthProvider extends Component { 
-  state = { isLoggedin: false, user: null, isLoading: true }; 
+  state = { 
+    isLoggedin: false, 
+    user: null, 
+    isLoading: true 
+  
+  }; 
 
   componentDidMount() { 
     auth
@@ -71,6 +76,14 @@ class AuthProvider extends Component {
     }
   };
 
+  /* userInfo = async () => {
+    try {
+      await auth.userInfo();
+      this.setState({ })
+    } catch (error) {
+      
+    }
+  } */
   render() {
     const { isLoading, isLoggedin, user } = this.state;
     const { login, logout, signup } = this;

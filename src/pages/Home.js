@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -24,7 +25,7 @@ function Home() {
               className="d-block w-100"
               alt="second slide"
             />
-            <div className="carousel-caption d-none d-md-block">
+            <div className="carousel-caption d-md-block">
               <h5>Sign up and join the community</h5>
               <p>
                 Have unlimited access to all exercises and upload your own
@@ -38,7 +39,7 @@ function Home() {
               className="d-block w-100"
               alt="laptop"
             />
-            <div className="carousel-caption d-none d-md-block">
+            <div className="carousel-caption d-md-block">
               <h5>Your gym, at home</h5>
               <p>
                 Have access to dozens of exercises on the palm of your hand.
@@ -52,7 +53,7 @@ function Home() {
               className="d-block w-100"
               alt="calendar"
             />
-            <div className="carousel-caption d-none d-md-block">
+            <div className="carousel-caption d-md-block">
               <h5>Discover our monthly calendar</h5>
               <p>
                 Our national experts team have developed the most efficient
@@ -85,6 +86,10 @@ function Home() {
           ></span>
           <span className="sr-only">Next</span>
         </a>
+      </div>
+      <div>
+        <button><Link to="/signup" className=""> Sign Up </Link> </button>
+        <button><Link to="/login" className=""> Log In </Link> </button>
       </div>
     </div>
   );

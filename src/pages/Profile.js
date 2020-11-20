@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { withAuth } from '../lib/AuthProvider';
 
 class Profile extends Component {
-  /*   state = {
+    
+     state = {
         username: "",
         email: "",
         weight: 0, 
@@ -15,9 +16,9 @@ class Profile extends Component {
 
     getInfoUser = async () => {
       
-    } */
-
+    } 
     render() {
+        
         return (
             <div>
                <h1>{this.props.user.email}</h1>

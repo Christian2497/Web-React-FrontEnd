@@ -38,7 +38,7 @@ class Navbar extends Component {
                 <Link to="/faq" className="nav-link">
                   FAQ
                 </Link>
-                <button className='nav-link' onClick={logout}>Logout</button>
+                <button className='nav-link logout' onClick={logout}>Logout</button>
             </>
           ) : (
             <>

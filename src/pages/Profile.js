@@ -73,13 +73,15 @@ class Profile extends Component {
     render() {
         
         return (
+            <div className="profile-container">
             <div>
-            <img src={this.props.user.imgPath} alt="user" width="500" />
-            <a href={`/profile/${this.props.user._id}/edit`}><img src="/images/edit-icon.svg" alt="pencil" width="100"/></a>
-            <h1>Hello, {this.props.user.username}. Welcome to your profile.</h1>
-               <p>Current weight: {this.props.user.weight}kg</p>
-               <p>Goal: {this.props.user.goal}kg</p>
-               <p>You have {this.weightDifference}kg left.</p>
+            <img className="profile-image" src={this.props.user.imgPath} alt="user" width="500" />
+            <a  href={`/profile/${this.props.user._id}/edit`}><img className="profile-edit" src="/images/edit-icon.svg" alt="pencil" width="100"/></a>
+            </div>
+            <h1 className="profile-text">Hello, {this.props.user.username}. Welcome to your profile.</h1>
+               <p className="profile-text">Current weight: {this.props.user.weight}kg</p>
+               <p className="profile-text">Goal: {this.props.user.goal}kg</p>
+               <p className="profile-text">You have {this.weightDifference}kg left.</p>
                <button><Link to={`/videos/favourites/${this.props.user._id}`} className="">
                Favourite videos
                 </Link></button>

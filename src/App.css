@@ -70,6 +70,13 @@ table {
   text-align: right;
 }
 
+.logout {
+	border:none;
+	background-color: none;
+	background: none;
+	text-align: end;
+}
+
 
 /* HOME PAGE */
 
@@ -167,4 +174,31 @@ padding: 1rem 0;
 
 #weight label {
 	width: 20%;
+}
+
+/* PROFILE */
+
+.profile-image {
+	border-radius: 50%;
+	width: 10rem;
+	margin: 2rem 0;
+}
+
+.profile-edit {
+	width: 1.5rem;
+}
+
+.profile-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+}
+
+.profile-text {
+	padding:1.5rem;
+	text-align: left;
+	margin: 0 2rem;
+	width: 100%;
 }

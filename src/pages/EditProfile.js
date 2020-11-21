@@ -23,7 +23,7 @@ class EditProfile extends Component {
               <h1>Edit your profile </h1>
 
                 <form onSubmit={this.handleFormSubmit}>
-                
+
                 <div>
                 <label>Username:</label>
                 <input type="text" name="title" value={username} onChange={ e => this.handleChange(e)} required/>

@@ -27,6 +27,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	font-family: 'Raleway', sans-serif;
 }
 ol, ul {
 	list-style: none;
@@ -60,17 +61,17 @@ table {
 /* NAVBAR */
 
 .navbar {
-  background-color: rgba(68, 192, 68, 0.815);
+  background-color: rgba(108, 247, 108, 0.678);
   width: 100%;
   padding-right: 3rem;
   padding-left: 3rem;
   font-family: 'Raleway', sans-serif;
+  font-size: 17px;
+  text-align: right;
 }
 
-.nav-link {
-  margin-right: 2rem;
-  margin-left: 2rem;
-}
+
+/* HOME PAGE */
 
 .carousel-caption h5 {
   font-size: 2.5rem;
@@ -80,9 +81,90 @@ table {
 .carousel-caption  {
   font-size: 1.5rem;
   text-shadow: 2px 2px 28px black;
+  font-family: 'Raleway', sans-serif;
 }
 
 .carousel-inner{
 	height: 100%;
 	width: 100%;
+}
+
+/* LOGIN */
+
+.login-title {
+	text-align: center;
+	font-size: 2.5rem;
+	padding: 2rem 0 3rem;
+}
+
+.login-form {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+.login-form label {
+padding: 1rem 0;
+}
+
+.login-form input {
+	margin: 1rem 1rem 2rem;
+}
+
+.login-button {
+	padding: 0.5rem 1rem;
+	margin-top: 1rem;
+}
+
+/* SIGN UP  */
+
+.signup-title {
+	text-align: center;
+	font-size: 2.5rem;
+	padding: 2rem 0 3rem;
+}
+
+.signup-form {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.signup-form div {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+.signup-form label {
+	padding: 0.5rem 0;
+}
+	
+.signup-form input {
+	margin: 1rem 1rem 2rem;
+}
+	
+.signup-button {
+	padding: 0.5rem 1rem 0;
+	margin: 1rem 0 0 0;
+}
+.signup-button-div {
+	padding: 0 2rem;
+}
+
+#weight {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+}
+
+#weight input {
+	width: 20%;
+}
+
+#weight label {
+	width: 20%;
 }

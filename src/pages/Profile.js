@@ -21,7 +21,7 @@ class Profile extends Component {
     }
 
     getProfile = async () => {
-        const user = await axios.get("http://localhost:4000")
+        const user = await axios.get(`http://localhost:4000/profile/${this.props.user._id}`)
         this.setState({ user: user.data})
         console.log(this.props.user, 'this is  the user')
     }
@@ -30,7 +30,7 @@ class Profile extends Component {
         if(!this.state.title){
             this.getSingleProject();
         } else{
-            return <EditProfile theUser={this.state} getTheUser={this.getProfile} {...this.props} />
+            return <EditProfile theUser={this.state} getProfile={this.getProfile} {...this.props} />
         }
     }
     /* componentDidMount = async () => {

@@ -33,6 +33,12 @@ class Auth {
   me() {
     return this.auth.get("/me").then(({ data }) => data);
   }
+
+  addExercise({ title, description, url, intensity, muscle }) {
+    return this.auth
+      .post("/profile/:id/add-video", { title, description, url, intensity, muscle  })
+      .then(({ data }) => data);
+  }
 }
 
 const axiosRequestFunctions = new Auth(); 

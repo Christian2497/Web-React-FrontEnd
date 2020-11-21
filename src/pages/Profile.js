@@ -50,15 +50,15 @@ class Profile extends Component {
         return (
             <div>
             <img src={this.props.user.imgPath} alt="user" />
-            <a href="/profile/${this.props.user._id}/edit"><img src="/images/edit-icon.svg" alt="pencil" /></a>
+            <a href={`/profile/${this.props.user._id}/edit`}><img src="/images/edit-icon.svg" alt="pencil" /></a>
             <h1>Hello, {this.props.user.username}. Welcome to your profile.</h1>
                <p>Current weight: {this.props.user.weight}kg</p>
                <p>Goal: {this.props.user.goal}kg</p>
                <p>You have {this.weightDifference}kg left.</p>
-               <button><Link to={`/videos/favourites/${this.props.user._id}`} className="nav-link active">
+               <button><Link to={`/videos/favourites/${this.props.user._id}`} className="">
                Favourite videos
                 </Link></button>
-               <button><Link to='/profile/add-video' >Add new video</Link></button>
+               <button><Link to={`/profile/${this.props.user._id}/add-video`} >Add new video</Link></button>
             </div>
         )
     }

@@ -8,7 +8,7 @@ const withAuth = (WrappedComponent) => {
     render() {
       return (
         <Consumer>  
-          {({ login, signup, user, logout, isLoggedin }) => { //cualquier componente que venga aquí va a devolver las props que tuviese + las que se le agregan aquí
+          {({ login, signup, user, logout, isLoggedin, addExercise }) => { //cualquier componente que venga aquí va a devolver las props que tuviese + las que se le agregan aquí
             return (
               <WrappedComponent
                 login={login}
@@ -16,6 +16,7 @@ const withAuth = (WrappedComponent) => {
                 user={user}
                 logout={logout}
                 isLoggedin={isLoggedin}
+                addExercise={addExercise}
                 {...this.props}  //estas son las props que ya tenía el componente
               />
             );
@@ -56,6 +57,16 @@ class AuthProvider extends Component {
       ); */
   };
 
+  addExercise = (user) => {
+    const { title, description, url, intensity, muscle } = user;
+    auth
+      .addExercise({ title, description, url, intensity, muscle })
+      .then((user) => this.setState({ isLoggedin: true, user }))  
+      .catch(({ error }) =>
+        this.setState({ message: error.data.statusMessage })
+      ); 
+  };
+
   login = async (user) => {
     const { email , password } = user;
 
@@ -86,12 +97,12 @@ class AuthProvider extends Component {
   } */
   render() {
     const { isLoading, isLoggedin, user } = this.state;
-    const { login, logout, signup } = this;
+    const { login, logout, signup, addExercise } = this;
 
     return isLoading ? (
       <div>Loading</div>
     ) : (
-      <Provider value={{ isLoggedin, user, login, logout, signup }}>
+      <Provider value={{ isLoggedin, user, login, logout, signup, addExercise }}>
         {this.props.children}
       </Provider>
     );

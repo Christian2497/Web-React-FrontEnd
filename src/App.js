@@ -15,6 +15,7 @@ import AuthProvider from "./lib/AuthProvider";
 
 import AnonRoute from "./components/AnonRoute";
 import PrivateRoute from "./components/PrivateRoute";
+import EditProfile from "./pages/EditProfile";
 
 class App extends Component {
 
@@ -29,6 +30,7 @@ class App extends Component {
             <AnonRoute exact path="/login" component={Login} />
             <PrivateRoute exact path="/profile/:id" component={Profile} />
             <PrivateRoute exact path="/profile/:id/add-video" component={AddVideo} />
+            <PrivateRoute exact path="/profile/:id/edit" component={EditProfile} />
             {/* <PrivateRoute exact path="/videos" component={} /> */}
             {/* <PrivateRoute exact path="/videos/:id" component={} /> */}
             {/* <PrivateRoute exact path="/videos/:id/edit" component={} /> */}

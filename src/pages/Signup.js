@@ -22,7 +22,6 @@ class Signup extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     const { username, email, weight, goal, password, repeatPassword } = this.state;
-    //console.log('Signup -> form submit', { username, password });
     this.props.signup({ username, email, weight, goal, password, repeatPassword });
   };
 
@@ -35,7 +34,7 @@ class Signup extends Component {
 
         switch (name) {
             case "username":
-                isError.name =
+                isError.username =
                     value.length < 1  ? "Introduce your name " : "";
                 break;
             case "email":
@@ -59,7 +58,7 @@ class Signup extends Component {
   };
 
   errorMessage = () => {
-    this.setState({ message: "This email already exists. Try another one!"})
+      this.setState({ message: "This email already exists. Try another one!"})
   }
 
   render() {
@@ -73,7 +72,7 @@ class Signup extends Component {
           <label>Username:</label>
           <input type="text" name="username" value={username} onChange={this.handleChange} required/>
           {this.state.isError.name.length > 0 && (
-                        <span className="invalid-feedback">{this.state.isError.name}</span>
+                        <span className="invalid-feedback">{this.state.isError.username}</span>
           )}
           </div>
           <div>

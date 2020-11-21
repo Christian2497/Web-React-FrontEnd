@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider";
 
-const AnonRoute = ({ component: Component, isLoggedin, ...rest }) => {
+const PrivateRoute = ({ component: Component, isLoggedin, ...rest }) => {
   return (
     <Route
       {...rest}
@@ -13,4 +13,4 @@ const AnonRoute = ({ component: Component, isLoggedin, ...rest }) => {
   );
 };
 
-export default withAuth(AnonRoute);
+export default withAuth(PrivateRoute);

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { withAuth } from '../lib/AuthProvider';
 import axios from "axios";
 import { Link } from "react-router-dom";
+import EditProfile from './EditProfile';
 
 class Profile extends Component {
     state = {
@@ -9,10 +10,34 @@ class Profile extends Component {
     }
 
     componentDidMount = async () => {
+        this.getProfile();
+    }
+
+    componentWillUnmount() {
+        // fix Warning: Can't perform a React state update on an unmounted component
+        this.setState = (state, callback) => {
+          return;
+        };
+    }
+
+    getProfile = async () => {
         const user = await axios.get("http://localhost:4000")
         this.setState({ user: user.data})
         console.log(this.props.user, 'this is  the user')
     }
+
+    editForm = () => {
+        if(!this.state.title){
+            this.getSingleProject();
+        } else{
+            return <EditProfile theUser={this.state} getTheUser={this.getProfile} {...this.props} />
+        }
+    }
+    /* componentDidMount = async () => {
+        const user = await axios.get("http://localhost:4000")
+        this.setState({ user: user.data})
+        console.log(this.props.user, 'this is  the user')
+    } */
 
     
 //   ESTOY INTENTANDO HACER LA DIFERENCIA ENTRE EL PESO Y EL OBJETIVO PERO NO ME SALE
@@ -49,8 +74,8 @@ class Profile extends Component {
         
         return (
             <div>
-            <img src={this.props.user.imgPath} alt="user" />
-            <a href={`/profile/${this.props.user._id}/edit`}><img src="/images/edit-icon.svg" alt="pencil" /></a>
+            <img src={this.props.user.imgPath} alt="user" width="500" />
+            <a href={`/profile/${this.props.user._id}/edit`}><img src="/images/edit-icon.svg" alt="pencil" width="100"/></a>
             <h1>Hello, {this.props.user.username}. Welcome to your profile.</h1>
                <p>Current weight: {this.props.user.weight}kg</p>
                <p>Goal: {this.props.user.goal}kg</p>

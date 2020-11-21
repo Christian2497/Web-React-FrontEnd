@@ -8,12 +8,6 @@ class Auth {
     });
   }
 
-  userInfo({ username, email, weight, goal }){
-    return this.auth
-    .get("/profile/:id", { username, email, weight, goal })
-    .then(({ data }) => data);
-  }
-
   signup({ username, email, weight, goal, password, repeatPassword }) {
     return this.auth
       .post("/signup", { username, email, weight, goal, password, repeatPassword  })
@@ -39,6 +33,20 @@ class Auth {
       .post("/profile/:id/add-video", { title, description, url, intensity, muscle  })
       .then(({ data }) => data);
   }
+
+  editProfile({ username, weight, goal, imgPath }) {
+    return this.auth
+    .put("/profile/:id/edit", { username, weight, goal, imgPath })
+    .then(({ data }) => data);
+  }
+
+  userInfo({ username, email, weight, goal }){
+    return this.auth
+    .get("/profile/:id", { username, email, weight, goal })
+    .then(({ data }) => data);
+  }
+
+
 }
 
 const axiosRequestFunctions = new Auth(); 

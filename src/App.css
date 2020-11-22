@@ -28,6 +28,9 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 	font-family: 'Raleway', sans-serif;
+	height: 100%;
+	margin:0;
+   	padding:0 0 3rem 0;
 }
 ol, ul {
 	list-style: none;
@@ -58,10 +61,15 @@ button {
   font-family: 'Raleway', sans-serif;
 }
 
+.desktop-show {
+	display: none;
+}
+
 .containers{
 	margin: 0;
 	padding: 0;
-	height: 100%;
+	min-height: 100%;
+	position:relative;
 }
 
 /* NAVBAR */
@@ -166,21 +174,32 @@ button {
   /* Footer */
 
   footer{
-	/*position: fixed;*/
+	position: absolute;
 	bottom: 0px;
 	width: 100%;
 	color: #040404;
-  }
-  .bottom center{
-	padding: 5px;
-	font-size: 20px;
+	height: 2rem;
 	background-color:  rgba(68, 192, 68, 0.815);
-  }
+
+	}
+.bottom {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+  .bottom center{
+	height: 2rem;
+	font-size: 18px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	}
+
   .bottom center span{
 	color: black;
   }
   .bottom center span a{
-	color: ;
 	text-decoration: none;
   }
   
@@ -190,39 +209,7 @@ button {
 
 
 
-  @media screen and (min-width: 700px){
-	.carousel-caption h5 {
-		font-size: 2.5rem;
-		margin-bottom: 2rem;
-		text-shadow: 2px 2px 28px black;
-	}
-	.carousel-caption  {
-		font-size: 1.8rem;
-		text-shadow: 2px 2px 28px black;
-	}
-	.carousel-inner{
-		height: 60%;
-		width: 100%;
-	}
 
-	.container{
-		display: flex;
-		flex-direction: row;
-		justify-content: space-around;
-	}
-  }
-
-  @media screen and (min-width: 1000px){
-	.carousel-caption h5 {
-		font-size: 4rem;
-		margin-bottom: 2rem;
-		text-shadow: 2px 2px 28px black;
-	  }
-	  .carousel-caption  {
-		font-size: 3.5rem;
-		text-shadow: 2px 2px 28px black;
-	  }
-  }
 /* LOGIN */
 
 .login-title {
@@ -396,3 +383,82 @@ width: 8.5rem;
 .faq-title-text:hover {
 	color: black;
 }
+
+@media screen and (min-width: 700px){
+	.desktop-show {
+		display: none;
+	}
+	  
+	.carousel-caption h5 {
+		font-size: 2.5rem;
+		margin-bottom: 2rem;
+		text-shadow: 2px 2px 28px black;
+	}
+	.carousel-caption  {
+		font-size: 1.8rem;
+		text-shadow: 2px 2px 28px black;
+	}
+	.carousel-inner{
+		height: 60%;
+		width: 100%;
+	}
+
+	.container{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+	}
+  }
+
+  @media screen and (min-width: 1000px){
+	.mobile-show {
+		display: none;
+	}
+
+	.desktop-show {
+		display: initial;
+	}
+
+	.carousel-caption h5 {
+		font-size: 4rem;
+		margin-bottom: 2rem;
+		text-shadow: 2px 2px 28px black;
+	  }
+	  .carousel-caption  {
+		font-size: 3.5rem;
+		text-shadow: 2px 2px 28px black;
+	  }
+
+	  /*FAQ*/
+	  .faq-desktop-item {
+		width: 20rem;
+		margin: 1rem;
+		border: 1px solid black;
+		border-radius: 1rem;
+		padding: 2rem;
+		background-color: rgba(255, 255, 255, 0.473);
+		height: 20rem;
+	  }
+
+	  .faq-desktop-container {
+		  display: flex;
+		  justify-content: center;
+		  background-image: url(/images/fondo.jpg);
+		  background-size: 100%;
+		  background-repeat: no-repeat;
+		  height: 100%;
+		  background-size: cover;
+	  }
+
+	  .faq-desktop-item h2 {
+		  padding: 0.7rem 0;
+		  font-size: 20px;
+		  font-weight: bold;
+	  }
+
+	  .faq-desktop-item p {
+		padding: 1rem 0;
+		font-size: 18px;
+		margin-bottom: 1rem;
+	}
+  }

@@ -5,7 +5,7 @@ function Faq() {
     return (
         <div className="">
             
-            <div className="accordion " id="accordionExample">
+            <div className="accordion mobile-show" id="accordionExample">
             <div className="card faq-card">
                 <div className="card-header" id="headingOne">
                 <h2 className="mb-0">
@@ -65,6 +65,28 @@ function Faq() {
             </div>
             </div>
 
+        <div className="desktop-show faq-desktop-container">
+        <div>
+        <div className="faq-desktop-item">
+            <h2>About us</h2>
+            <p>This website was made by two Web Developers, Christian Hernández and Marta Camacho, who are sport and programming lovers. This was created during the Covid19 restrictions, having in mind that people cannot do sport at the gym and that we are staying at home more than ever.</p>
+        </div>
+        <div className="faq-desktop-item">
+            <h2>How does FitLine work?</h2>
+            <p>It's super easy! Just by signing up, you will join the community (it's free forever), and you will be ready to check the best workouts on the internet (and add your own!).</p>
+        </div>
+        </div>
+        <div>
+        <div className="faq-desktop-item">
+            <h2>Can I upload content?</h2>
+            <p>Of course! As long as you have a YouTube video link, you can share your content with the community.</p>
+        </div>
+        <div className="faq-desktop-item">
+            <h2>How does the calendar work?</h2>
+            <p>The calendar is focused on daily muscle group workouts, tailored and changed every month.</p>
+            </div>
+            </div>
+        </div>
         </div>
     )
 }

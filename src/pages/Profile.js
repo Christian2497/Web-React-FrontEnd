@@ -64,7 +64,9 @@ class Profile extends Component {
     render() {
         
         return (
+        <div className="perfil">
             <div className="profile-container">
+            <div className="profile">
             <div>
             <img className="profile-image" src={this.props.user.imgPath} alt="user" width="500" />
             <a  href={`/profile/${this.props.user._id}/edit`}><img className="profile-edit" src="/images/edit-icon.svg" alt="pencil" width="100"/></a>
@@ -78,6 +80,8 @@ class Profile extends Component {
                 </Link></button>
                <button><Link to={`/profile/${this.props.user._id}/add-video`} >Add new video</Link></button>
             </div>
+            </div>
+        </div>
         )
     }
 }

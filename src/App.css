@@ -112,7 +112,7 @@ button {
 
 .button {
 	display: inline-block;
-	border-radius: 4px;
+	border-radius: 10px;
 	background-color: blue;
 	border: none;
 	color: #FFFFFF;
@@ -207,9 +207,6 @@ button {
 	text-decoration: underline;
   }
 
-
-
-
 /* LOGIN */
 
 .login-title {
@@ -292,6 +289,37 @@ padding: 1rem 0;
 
 /* PROFILE */
 
+.perfil{
+	background: url(/images/fondo-perfil.jpg) no-repeat center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	opacity: 0.8;
+}
+
+.profile-container{
+	padding: 20px;
+	height: 135vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row-reverse;
+	width: 100%;
+  }
+  
+.profile{
+	display: flex;
+	flex-direction: column;
+	/* position: relative; */
+	max-width: 600px;
+	padding: 50px;
+	background: rgba(255, 255, 255);
+	box-shadow: 0 5px 15px rgba(0, 0, 0, .5); 
+	color: black; 
+	text-align: center;
+  }
+
 .profile-image {
 	border-radius: 50%;
 	width: 10rem;
@@ -302,20 +330,16 @@ padding: 1rem 0;
 	width: 1.5rem;
 }
 
-.profile-container {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
 .profile-text {
-	padding:1.5rem;
+	padding: 2.5rem;
 	text-align: left;
 	margin: 0 2rem;
 	width: 100%;
 }
 
+
+
+@media screen and (min-width: 700px){
 /* ADD NEW VIDEO */
 
 .add-video-title {

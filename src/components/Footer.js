@@ -6,7 +6,7 @@ class Footer extends Component {
                 <footer>
                     <div className="bottom">
                     <center>  
-                        <span className="credit">Create By <a href="/">Christian Hernandez & Marta Camacho </a> | </span>
+                        <span className="credit">Created By <a href="/">Christian Hernandez & Marta Camacho </a> | </span>
                         <span className="far fa-copyright"></span><span> 2020 All rights reserved.</span>
                     </center>
                     </div>

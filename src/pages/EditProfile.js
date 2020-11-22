@@ -8,7 +8,7 @@ class EditProfile extends Component {
     handleFormSubmit = event => {
         event.preventDefault();
         const { username, weight, goal, imgPath } = this.state;
-        this.props.EditProfile ({ username, weight, goal, imgPath })
+        this.props.editProfile ({ username, weight, goal, imgPath })
         };
 
       handleChange = event => {

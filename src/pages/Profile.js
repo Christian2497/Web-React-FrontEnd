@@ -27,7 +27,7 @@ class Profile extends Component {
     }
 
     editForm = () => {
-        if(!this.state.title){
+        if(!this.state.email){
             this.getSingleProject();
         } else{
             return <EditProfile theUser={this.state} getProfile={this.getProfile} {...this.props} />

@@ -20,6 +20,7 @@ import AllExercises from "./pages/AllExercises";
 import ExerciseDetails from "./pages/ExerciseDetails";
 import FavouriteExercise from "./pages/Favourite";
 import Faq from "./pages/Faq";
+import FaqP from "./pages/FaqP";
 
 import Footer from "./components/Footer";
 
@@ -35,6 +36,7 @@ class App extends Component {
             <AnonRoute exact path="/signup" component={Signup} />
             <AnonRoute exact path="/login" component={Login} />
             <AnonRoute exact path="/faq" component={Faq} />
+            <PrivateRoute exact path="/faq" component={FaqP} />
             <PrivateRoute exact path="/profile/:id" component={Profile} />
             <PrivateRoute exact path="/profile/:id/add-video" component={AddVideo} />
             <PrivateRoute exact path="/profile/:id/edit" component={EditProfile} />

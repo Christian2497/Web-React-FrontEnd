@@ -16,6 +16,11 @@ import AuthProvider from "./lib/AuthProvider";
 import AnonRoute from "./components/AnonRoute";
 import PrivateRoute from "./components/PrivateRoute";
 import EditProfile from "./pages/EditProfile";
+import AllExercises from "./pages/AllExercises";
+import ExerciseDetails from "./pages/ExerciseDetails";
+import FavouriteExercise from "./pages/Favourite";
+import Faq from "./pages/Faq";
+
 import Footer from "./components/Footer";
 
 class App extends Component {
@@ -29,13 +34,14 @@ class App extends Component {
             <AnonRoute exact path="/" component={Home} />
             <AnonRoute exact path="/signup" component={Signup} />
             <AnonRoute exact path="/login" component={Login} />
+            <AnonRoute exact path="/faq" component={Faq} />
             <PrivateRoute exact path="/profile/:id" component={Profile} />
             <PrivateRoute exact path="/profile/:id/add-video" component={AddVideo} />
             <PrivateRoute exact path="/profile/:id/edit" component={EditProfile} />
-            {/* <PrivateRoute exact path="/videos" component={} /> */}
-            {/* <PrivateRoute exact path="/videos/:id" component={} /> */}
+            <PrivateRoute exact path="/videos" component={AllExercises} />
+            <PrivateRoute exact path="/videos/:id" component={ExerciseDetails} />
             {/* <PrivateRoute exact path="/videos/:id/edit" component={} /> */}
-            {/* <PrivateRoute exact path="/videos/favourites/:id" component={} /> */}
+            <PrivateRoute exact path="/videos/favourites/:id" component={FavouriteExercise} />
             {/* <PrivateRoute exact path="/videos/completed/:id" component={} /> */}
           </Switch>
         </div>

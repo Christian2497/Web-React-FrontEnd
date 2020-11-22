@@ -28,6 +28,9 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 	font-family: 'Raleway', sans-serif;
+	height: 100%;
+	margin:0;
+   	padding:0 0 3rem 0;
 }
 ol, ul {
 	list-style: none;
@@ -44,6 +47,12 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+button {
+	padding: 0.5rem 1rem;
+	border-radius: 8px;
+	margin: 0.5rem;
+}
 /* FONT */
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;500;800&display=swap');
@@ -52,10 +61,15 @@ table {
   font-family: 'Raleway', sans-serif;
 }
 
+.desktop-show {
+	display: none;
+}
+
 .containers{
 	margin: 0;
 	padding: 0;
-	height: 100%;
+	min-height: 100%;
+	position:relative;
 }
 
 /* NAVBAR */
@@ -160,16 +174,28 @@ table {
   /* Footer */
 
   footer{
-	/*position: fixed;*/
+	position: absolute;
 	bottom: 0px;
 	width: 100%;
 	color: #040404;
-  }
-  .bottom center{
-	padding: 5px;
-	font-size: 20px;
+	height: 2rem;
 	background-color:  rgba(68, 192, 68, 0.815);
-  }
+
+	}
+.bottom {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+  .bottom center{
+	height: 2rem;
+	font-size: 18px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	}
+
   .bottom center span{
 	color: black;
   }
@@ -314,6 +340,79 @@ padding: 1rem 0;
 
 
 @media screen and (min-width: 700px){
+/* ADD NEW VIDEO */
+
+.add-video-title {
+	text-align: center;
+	font-size: 2.5rem;
+	padding: 2rem 0 3rem;
+}
+
+.add-video-form {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.add-video-form-div {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+.add-video-form label {
+	padding: 0.5rem 0;
+}
+	
+.add-video-form input{
+	margin: 1rem 1rem 2rem;
+}
+	
+.add-video-button {
+	padding: 0.5rem 1rem;
+	margin: 1rem 0 0 0;
+	width: 8rem;
+	text-align: center;
+	align-content: center;
+}
+.add-video-button-div {
+	display: flex;
+	justify-content: center;
+}
+
+.add-video-form select {
+width: 8.5rem;
+}
+
+.add-video-selectors {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1rem 2rem;
+}
+
+/* FAQ */
+
+.faq-card {
+	text-decoration: none;
+	padding: 1rem 0;
+	border: none;
+}
+
+.faq-title-text {
+	color: rgb(46, 46, 46);
+}
+
+.faq-title-text:hover {
+	color: black;
+}
+
+@media screen and (min-width: 700px){
+	.desktop-show {
+		display: none;
+	}
+	  
 	.carousel-caption h5 {
 		font-size: 2.5rem;
 		margin-bottom: 2rem;
@@ -336,13 +435,54 @@ padding: 1rem 0;
   }
 
   @media screen and (min-width: 1000px){
+	.mobile-show {
+		display: none;
+	}
+
+	.desktop-show {
+		display: initial;
+	}
+
 	.carousel-caption h5 {
-		font-size: 3.8rem;
+		font-size: 4rem;
 		margin-bottom: 2rem;
 		text-shadow: 2px 2px 28px black;
 	  }
 	  .carousel-caption  {
-		font-size: 2.6rem;
+		font-size: 3.5rem;
 		text-shadow: 2px 2px 28px black;
 	  }
+
+	  /*FAQ*/
+	  .faq-desktop-item {
+		width: 20rem;
+		margin: 1rem;
+		border: 1px solid black;
+		border-radius: 1rem;
+		padding: 2rem;
+		background-color: rgba(255, 255, 255, 0.473);
+		height: 20rem;
+	  }
+
+	  .faq-desktop-container {
+		  display: flex;
+		  justify-content: center;
+		  background-image: url(/images/fondo.jpg);
+		  background-size: 100%;
+		  background-repeat: no-repeat;
+		  height: 100%;
+		  background-size: cover;
+	  }
+
+	  .faq-desktop-item h2 {
+		  padding: 0.7rem 0;
+		  font-size: 20px;
+		  font-weight: bold;
+	  }
+
+	  .faq-desktop-item p {
+		padding: 1rem 0;
+		font-size: 18px;
+		margin-bottom: 1rem;
+	}
   }

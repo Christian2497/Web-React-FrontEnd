@@ -32,7 +32,7 @@ class Navbar extends Component {
                 <Link to="/calendar" className="nav-link">
                   Calendar
                 </Link>
-                <Link to="/exercises" className="nav-link">
+                <Link to="/videos" className="nav-link">
                   Exercises
                 </Link>
                 <Link to="/faq" className="nav-link">

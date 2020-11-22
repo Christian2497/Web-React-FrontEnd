@@ -62,7 +62,7 @@ class AuthProvider extends Component {
     const { title, description, url, intensity, muscle } = user;
     auth
       .addExercise({ title, description, url, intensity, muscle })
-      .then((user) => this.setState({ isLoggedin: true, user }))  
+      .then((user) => this.setState({ user: user }))  
       .catch(({ error }) =>
         this.setState({ message: error.data.statusMessage })
       ); 

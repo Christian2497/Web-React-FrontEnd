@@ -38,12 +38,12 @@ class Navbar extends Component {
                 <Link to="/faq" className="nav-link">
                   FAQ
                 </Link>
-                <button className='nav-link' onClick={logout}>Logout</button>
+                <button className='nav-link logout' onClick={logout}>Logout</button>
             </>
           ) : (
             <>
                   <Link to="/login" className="nav-link">Login</Link>
-                  <Link to="/signup" className="nav-link">Sign Up</Link>
+                  <Link to="/signup" className="nav-link ">Sign Up</Link>
                   <Link to="/faq" className="nav-link">FAQ</Link>
             </>
           )}

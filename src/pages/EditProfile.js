@@ -13,7 +13,7 @@ class EditProfile extends Component {
         event.preventDefault();
         const { username, weight, goal, imgPath } = this.state;
         this.props.editProfile ({ username, weight, goal, imgPath })
-    };
+     };
 
       handleChange = event => {
         const { name, value } = event.target;
@@ -27,7 +27,7 @@ class EditProfile extends Component {
               <h1>Edit your profile </h1>
 
                 <form onSubmit={this.handleFormSubmit}>
-                
+
                 <div>
                 <label>Username:</label>
                 <input type="text" name="title" value={this.state.username} onChange={ e => this.handleChange(e)} />

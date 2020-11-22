@@ -13,7 +13,8 @@ class AddVideo extends Component {
     handleFormSubmit = event => {
         event.preventDefault();
         const { title, description, url, intensity, muscle } = this.state;
-        this.props.addExercise ({ title, description, url, intensity, muscle })
+        this.props.addExercise ({ title, description, url, intensity, muscle });
+        
         };
 
       handleChange = event => {

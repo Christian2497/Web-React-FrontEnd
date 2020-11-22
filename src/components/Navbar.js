@@ -26,7 +26,7 @@ class Navbar extends Component {
         <div className="navbar-nav ">
         {isLoggedin ? (
             <>
-                <Link to={`/profile/${user._id}`} className="nav-link active">
+                <Link to={`/profile/${user._id}`} className="nav-link">
                   My profile
                 </Link>
                 <Link to="/calendar" className="nav-link">
@@ -35,7 +35,7 @@ class Navbar extends Component {
                 <Link to="/videos" className="nav-link">
                   Exercises
                 </Link>
-                <Link to="/faq" className="nav-link">
+                <Link to="/faqP" className="nav-link">
                   FAQ
                 </Link>
                 <button className='nav-link logout' onClick={logout}>Logout</button>

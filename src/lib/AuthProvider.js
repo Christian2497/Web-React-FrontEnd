@@ -8,7 +8,7 @@ const withAuth = (WrappedComponent) => {
     render() {
       return (
         <Consumer>  
-          {({ login, signup, user, logout, isLoggedin, addExercise }) => { //cualquier componente que venga aquí va a devolver las props que tuviese + las que se le agregan aquí
+          {({ login, signup, user, logout, isLoggedin, addExercise, userInfo, allVideos }) => { //cualquier componente que venga aquí va a devolver las props que tuviese + las que se le agregan aquí
             return (
               <WrappedComponent
                 login={login}
@@ -17,6 +17,8 @@ const withAuth = (WrappedComponent) => {
                 logout={logout}
                 isLoggedin={isLoggedin}
                 addExercise={addExercise}
+                userInfo={userInfo}
+                allVideos={allVideos}
                 {...this.props}  //estas son las props que ya tenía el componente
               />
             );
@@ -61,11 +63,13 @@ class AuthProvider extends Component {
     const { title, description, url, intensity, muscle } = user;
     auth
       .addExercise({ title, description, url, intensity, muscle })
-      .then((user) => this.setState({ user: user }))  
+      .then((user) => this.setState({ isLoggedin: true, user }))  
       .catch(({ error }) =>
         this.setState({ message: error.data.statusMessage })
       ); 
   };
+
+
 
   login = async (user) => {
     const { email , password } = user;
@@ -96,14 +100,26 @@ class AuthProvider extends Component {
       
     }
   }
+
+  allVideos = (exercise) => {
+    const { title, description, url, intensity, muscle } = exercise;
+    auth
+      .allVideos({ title, description, url, intensity, muscle })
+      .then((exercise) => this.setState({ isLoggedin: true, exercise}))  
+      .catch(({ error }) =>
+        this.setState({ message: 'error' })
+      ); 
+  };
+
+
   render() {
     const { isLoading, isLoggedin, user } = this.state;
-    const { login, logout, signup, addExercise } = this;
+    const { login, logout, signup, addExercise, allVideos } = this;
 
     return isLoading ? (
       <div>Loading</div>
     ) : (
-      <Provider value={{ isLoggedin, user, login, logout, signup, addExercise }}>
+      <Provider value={{ isLoggedin, user, login, logout, signup, allVideos, addExercise }}>
         {this.props.children}
       </Provider>
     );

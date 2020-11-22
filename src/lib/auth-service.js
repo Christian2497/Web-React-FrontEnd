@@ -2,8 +2,8 @@ import axios from "axios";
 class Auth {
   constructor() {
     this.auth = axios.create({
-      //baseURL: process.env.REACT_APP_API_URI,
-      baseURL: 'http://localhost:4000',
+      baseURL: process.env.REACT_APP_API_URI,
+      //baseURL: 'http://localhost:4000',
       withCredentials: true,  
     });
   }
@@ -33,7 +33,7 @@ class Auth {
       .post("/profile/:id/add-video", { title, description, url, intensity, muscle  })
       .then(({ data }) => data);
   }
-
+  
   editProfile({ username, weight, goal, imgPath }) {
     return this.auth
     .put("/profile/:id/edit", { username, weight, goal, imgPath })
@@ -46,7 +46,11 @@ class Auth {
     .then(({ data }) => data);
   }
 
-
+  allVideos({ title, description, url, intensity, muscle }) {
+    return this.auth
+      .get("/videos", { title, description, url, intensity, muscle  })
+      .then(({ data }) => data);
+  }
 }
 
 const axiosRequestFunctions = new Auth(); 

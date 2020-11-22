@@ -44,6 +44,12 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+button {
+	padding: 0.5rem 1rem;
+	border-radius: 8px;
+	margin: 0.5rem;
+}
 /* FONT */
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;500;800&display=swap');
@@ -200,4 +206,56 @@ padding: 1rem 0;
 	text-align: left;
 	margin: 0 2rem;
 	width: 100%;
+}
+
+/* ADD NEW VIDEO */
+
+.add-video-title {
+	text-align: center;
+	font-size: 2.5rem;
+	padding: 2rem 0 3rem;
+}
+
+.add-video-form {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.add-video-form-div {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+.add-video-form label {
+	padding: 0.5rem 0;
+}
+	
+.add-video-form input{
+	margin: 1rem 1rem 2rem;
+}
+	
+.add-video-button {
+	padding: 0.5rem 1rem;
+	margin: 1rem 0 0 0;
+	width: 8rem;
+	text-align: center;
+	align-content: center;
+}
+.add-video-button-div {
+	display: flex;
+	justify-content: center;
+}
+
+.add-video-form select {
+width: 8.5rem;
+}
+
+.add-video-selectors {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 1rem 2rem;
 }

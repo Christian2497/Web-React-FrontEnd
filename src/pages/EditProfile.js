@@ -3,18 +3,29 @@ import { withAuth } from "../lib/AuthProvider";
 
 class EditProfile extends Component {
     state = {
+        username: this.props.user.username, 
+        weight: this.props.user.imgPath, 
+        goal: this.props.user.imgPath, 
+        imgPath: this.props.user.imgPath,
     }
 
     handleFormSubmit = event => {
         event.preventDefault();
         const { username, weight, goal, imgPath } = this.state;
-        this.props.editProfile ({ username, weight, goal, imgPath })
+        this.props.user ({ username, weight, goal, imgPath })
+        console.log(this, 'este es el username')
         };
 
       handleChange = event => {
         const { name, value } = event.target;
         this.setState({ [name]: value });
     };
+
+    componentWillUnmount() {
+        this.setState = (state, callback) => {
+          return;
+        };
+      }
 
     render() {
         const { username, weight, goal, imgPath } = this.state;

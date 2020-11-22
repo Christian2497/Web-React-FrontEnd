@@ -8,7 +8,7 @@ const withAuth = (WrappedComponent) => {
     render() {
       return (
         <Consumer>  
-          {({ login, signup, user, logout, isLoggedin, addExercise, userInfo, allVideos }) => { //cualquier componente que venga aquí va a devolver las props que tuviese + las que se le agregan aquí
+          {({ login, signup, user, logout, isLoggedin, addExercise, userInfo, allVideos, editProfile }) => { //cualquier componente que venga aquí va a devolver las props que tuviese + las que se le agregan aquí
             return (
               <WrappedComponent
                 login={login}
@@ -110,6 +110,8 @@ class AuthProvider extends Component {
       .then((exercise) => this.setState({ isLoggedin: true, exercise}))  
       .catch(({ error }) =>
         this.setState({ message: 'error' })
+      )}
+
   editProfile = (user) => {
     const { username, weight, goal, imgPath } = user;
     auth

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { withAuth } from '../lib/AuthProvider';
-// import axios from "axios";
+ //import axios from "axios";
 import { Link } from "react-router-dom";
+import EditProfile from "./EditProfile";
 
 class Profile extends Component {
     state = {
@@ -24,11 +25,6 @@ class Profile extends Component {
     }
 
 
-    getProfile = async () => {
-        const user = await axios.get(`http://localhost:4000/profile/${this.props.user._id}`)
-        this.setState({ user: user.data})
-        console.log(this.props.user, 'this is  the user')
-    }
     /* componentDidMount = async () => {
         const user = await axios.get("http://localhost:4000")
         this.setState({ user: user.data})

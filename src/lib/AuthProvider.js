@@ -19,6 +19,7 @@ const withAuth = (WrappedComponent) => {
                 addExercise={addExercise}
                 userInfo={userInfo}
                 allVideos={allVideos}
+                editProfile={editProfile}
                 {...this.props}  //estas son las props que ya tenía el componente
               />
             );
@@ -68,6 +69,7 @@ class AuthProvider extends Component {
         this.setState({ message: error.data.statusMessage })
       ); 
   };
+  
 
 
 
@@ -108,6 +110,13 @@ class AuthProvider extends Component {
       .then((exercise) => this.setState({ isLoggedin: true, exercise}))  
       .catch(({ error }) =>
         this.setState({ message: 'error' })
+  editProfile = (user) => {
+    const { username, weight, goal, imgPath } = user;
+    auth
+      .editProfile({ username, weight, goal, imgPath })
+      .then((user) => this.setState({ isLoggedin: true, user }))  
+      .catch(({ error }) =>
+        this.setState({ message: error.data.statusMessage })
       ); 
   };
 

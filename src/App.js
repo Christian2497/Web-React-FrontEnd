@@ -20,6 +20,7 @@ import AllExercises from "./pages/AllExercises";
 import ExerciseDetails from "./pages/ExerciseDetails";
 import FavouriteExercise from "./pages/Favourite";
 
+import Footer from "./components/Footer";
 
 class App extends Component {
 
@@ -27,7 +28,7 @@ class App extends Component {
     return (
       <AuthProvider>
       <Navbar />
-        <div className="container">
+        <div className="containers">
           <Switch> 
             <AnonRoute exact path="/" component={Home} />
             <AnonRoute exact path="/signup" component={Signup} />
@@ -42,6 +43,7 @@ class App extends Component {
             {/* <PrivateRoute exact path="/videos/completed/:id" component={} /> */}
           </Switch>
         </div>
+        <Footer/>
       </AuthProvider>
     );
   }

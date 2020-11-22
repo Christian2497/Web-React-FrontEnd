@@ -12,7 +12,7 @@ class Signup extends Component {
     repeatPassword: "",
     message: "",
     isError: {
-      name: '',
+      username: '',
       email: '',
       password: '',
       repeatPassword: ''
@@ -70,8 +70,8 @@ class Signup extends Component {
         <form className="signup-form" onSubmit={this.handleFormSubmit}>
           <div>
           <label>Username:</label>
-          <input type="text" name="username" value={username} onChange={ e => this.handleChange(e)} required/>
-          {this.state.isError.name.length > 0 && (
+          <input type="text" name="username" value={username} onChange={this.handleChange} required/>
+          {this.state.isError.username.length > 0 && (
                         <span className="invalid-feedback">{this.state.isError.username}</span>
           )}
           </div>

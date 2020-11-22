@@ -16,6 +16,7 @@ import AuthProvider from "./lib/AuthProvider";
 import AnonRoute from "./components/AnonRoute";
 import PrivateRoute from "./components/PrivateRoute";
 import EditProfile from "./pages/EditProfile";
+import Footer from "./components/Footer";
 
 class App extends Component {
 
@@ -23,7 +24,7 @@ class App extends Component {
     return (
       <AuthProvider>
       <Navbar />
-        <div className="container">
+        <div className="containers">
           <Switch> 
             <AnonRoute exact path="/" component={Home} />
             <AnonRoute exact path="/signup" component={Signup} />
@@ -38,6 +39,7 @@ class App extends Component {
             {/* <PrivateRoute exact path="/videos/completed/:id" component={} /> */}
           </Switch>
         </div>
+        <Footer/>
       </AuthProvider>
     );
   }

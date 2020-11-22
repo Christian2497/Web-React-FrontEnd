@@ -8,7 +8,7 @@ const withAuth = (WrappedComponent) => {
     render() {
       return (
         <Consumer>  
-          {({ login, signup, user, logout, isLoggedin, addExercise }) => { //cualquier componente que venga aquí va a devolver las props que tuviese + las que se le agregan aquí
+          {({ login, signup, user, logout, isLoggedin, addExercise, editProfile }) => { //cualquier componente que venga aquí va a devolver las props que tuviese + las que se le agregan aquí
             return (
               <WrappedComponent
                 login={login}
@@ -17,6 +17,7 @@ const withAuth = (WrappedComponent) => {
                 logout={logout}
                 isLoggedin={isLoggedin}
                 addExercise={addExercise}
+                editProfile={editProfile}
                 {...this.props}  //estas son las props que ya tenía el componente
               />
             );
@@ -66,6 +67,7 @@ class AuthProvider extends Component {
         this.setState({ message: error.data.statusMessage })
       ); 
   };
+  
 
   login = async (user) => {
     const { email , password } = user;
@@ -96,6 +98,18 @@ class AuthProvider extends Component {
       
     }
   }
+
+  editProfile = (user) => {
+    const { username, weight, goal, imgPath } = user;
+    auth
+      .editProfile({ username, weight, goal, imgPath })
+      .then((user) => this.setState({ isLoggedin: true, user }))  
+      .catch(({ error }) =>
+        this.setState({ message: error.data.statusMessage })
+      ); 
+  };
+
+
   render() {
     const { isLoading, isLoggedin, user } = this.state;
     const { login, logout, signup, addExercise } = this;

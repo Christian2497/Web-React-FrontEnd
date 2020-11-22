@@ -3,13 +3,17 @@ import { withAuth } from "../lib/AuthProvider";
 
 class EditProfile extends Component {
     state = {
+        username: this.props.username,
+        weight: this.props.weight,
+        goal: this.props.goal,
+        imgPath: this.props.imgPath
     }
 
     handleFormSubmit = event => {
         event.preventDefault();
         const { username, weight, goal, imgPath } = this.state;
-        this.props.EditProfile ({ username, weight, goal, imgPath })
-        };
+        this.props.editProfile ({ username, weight, goal, imgPath })
+    };
 
       handleChange = event => {
         const { name, value } = event.target;
@@ -17,7 +21,7 @@ class EditProfile extends Component {
     };
 
     render() {
-        const { username, weight, goal, imgPath } = this.state;
+        /* const { username, weight, goal, imgPath } = this.state; */
         return (
             <div>
               <h1>Edit your profile </h1>
@@ -26,22 +30,22 @@ class EditProfile extends Component {
                 
                 <div>
                 <label>Username:</label>
-                <input type="text" name="title" value={username} onChange={ e => this.handleChange(e)} required/>
+                <input type="text" name="title" value={this.state.username} onChange={ e => this.handleChange(e)} />
                 </div>
 
                 <div>
                 <label>Weight:</label>
-                <input type="number" name="description" value={weight} onChange={ e => this.handleChange(e)} required/>
+                <input type="number" name="description" value={this.state.weight} onChange={ e => this.handleChange(e)} />
                 </div>
 
                 <div>
                 <label>Goal:</label>
-                <input type="number" name="url" value={goal} onChange={ e => this.handleChange(e)} required/>
+                <input type="number" name="url" value={this.state.goal} onChange={ e => this.handleChange(e)} />
                 </div>
 
                 <div>
                 <label> Photo:</label>
-                <input type="file" name="imgPath" value={imgPath} onChange={ e => this.handleChange(e)} required/>
+                <input type="file" name="imgPath" value={this.state.imgPath} onChange={ e => this.handleChange(e)}/>
                 </div>
 
                 <input type="submit" value="Submit"/>

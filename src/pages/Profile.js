@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { withAuth } from '../lib/AuthProvider';
 import axios from "axios";
 import { Link } from "react-router-dom";
-import EditProfile from './EditProfile';
 
 class Profile extends Component {
     state = {
@@ -26,13 +25,7 @@ class Profile extends Component {
         console.log(this.props.user, 'this is  the user')
     }
 
-    editForm = () => {
-        if(!this.state.title){
-            this.getSingleProject();
-        } else{
-            return <EditProfile theUser={this.state} getTheUser={this.getProfile} {...this.props} />
-        }
-    }
+    
     /* componentDidMount = async () => {
         const user = await axios.get("http://localhost:4000")
         this.setState({ user: user.data})

@@ -47,9 +47,15 @@ class Auth {
     .then(({ data }) => data);
   }
 
-  allVideos({ title, description, url, intensity, muscle }) {
+  exerciseInfo(_id){
+  return this.auth
+  .get(`/videos/${_id}`, {})
+  .then(({ data }) => data);
+}
+
+  allVideos() {
     return this.auth
-      .get("/videos", { title, description, url, intensity, muscle  })
+      .get("/videos", { })
       .then(({ data }) => data);
   }
 }

@@ -3,25 +3,36 @@ import { withAuth } from "../lib/AuthProvider";
 
 class EditProfile extends Component {
     state = {
-        username: this.props.user.username, 
-        weight: this.props.user.weight, 
-        goal: this.props.user.goal, 
-        imgPath: this.props.user.imgPath,
+        /* user: "", */
+        username: this.props.user.username,
+        weight: this.props.user.weight,
+        goal: this.props.user.goal,
     }
 
-    handleFormSubmit = event => {
+   /*  componentDidMount() {
+      const userId = this.props.user._id
+    
+      return (
+          this.props.userInfo(userId)
+          .then(response => this.setState({ user: response }))
+          .catch(error => console.log(error))
+      )
+  } */
+  
+  
+  handleFormSubmit = event => {
         event.preventDefault();
         const userId = this.props.user._id
         const { username, weight, goal } = this.state;
-        console.log(this.props, "prooops")
         this.props.editProfile ({ userId, username, weight, goal})
-    };
+  };
 
-    handleChangeUsername = (event) => {
+    
+  handleChangeUsername = (event) => {
       this.setState({
-          username: event.target.value
+          username : event.target.value
       })
-    };
+  };
 
   handleChangeWeight = (event) => {
       this.setState({
@@ -44,18 +55,18 @@ class EditProfile extends Component {
                 <form onSubmit={this.handleFormSubmit}>
 
                 <div>
-                <label>Username:</label>
-                <input type="text" name="title" value={this.state.username} onChange={ e => this.handleChangeUsername(e)} />
+                <label>Username:</label>  
+                <input type="text" name="username" value={this.props.user.username} onChange={ e => this.handleChangeUsername(e)} />
                 </div>
 
                 <div>
                 <label>Weight:</label>
-                <input type="number" name="description" value={this.state.weight} onChange={ e => this.handleChangeWeight(e)} />
+                <input type="number" name="weight" value={this.props.user.weight} onChange={ e => this.handleChangeWeight(e)} />
                 </div>
 
                 <div>
                 <label>Goal:</label>
-                <input type="number" name="url" value={this.state.goal} onChange={ e => this.handleChangeGoal(e)} />
+                <input type="number" name="goal" value={this.props.user.goal} onChange={ e => this.handleChangeGoal(e)} />
                 </div>
 
                 {/* <div>

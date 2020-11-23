@@ -41,7 +41,6 @@ class AllExercises extends Component {
                 </Link>
                 <p style={{maxWidth: '400px'}} >{this.state.exercise.description} </p> 
               </div>
-           
           }
         </div>
         )

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { withAuth } from '../lib/AuthProvider';
  //import axios from "axios";
 import { Link } from "react-router-dom";
-import EditProfile from "./EditProfile";
 
 class Profile extends Component {
     state = {
@@ -18,7 +17,6 @@ class Profile extends Component {
             .catch(error => console.log(error))
         )
     }
-
 
     componentWillUnmount() {
         // fix Warning: Can't perform a React state update on an unmounted component

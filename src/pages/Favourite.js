@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 class FavouriteExercise extends Component {
 
     render() {
-        console.log(this.props.user.favourite, 'son las props')
+        console.log(this.props.user.favourite, 'son las props del favorito')
         return (
             <div>
         <h1>Favourite list</h1>

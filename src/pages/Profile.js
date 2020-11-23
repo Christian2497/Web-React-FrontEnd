@@ -6,7 +6,6 @@ import EditProfile from "./EditProfile";
 
 class Profile extends Component {
     state = {
-        weightDifference: 0,
         user: "",
     }
 
@@ -43,9 +42,7 @@ class Profile extends Component {
                <p className="profile-text">Current weight: {this.state.user.weight}kg</p>
                <p className="profile-text">Goal: {this.state.user.goal}kg</p>
                <p className="profile-text">You have {this.state.user.weight - this.state.user.goal}kg left.</p>
-               <button><Link to={`/videos/favourites/${this.state.user._id}`} className="">
-               Favourite videos
-                </Link></button>
+               <button><Link to={`/videos/favourites/${this.state.user._id}`} className="">Favourite videos</Link></button>
                <button><Link to={`/profile/${this.props.user._id}/add-video`} >Add new video</Link></button>
             </div>
             </div>

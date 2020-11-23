@@ -76,8 +76,8 @@ button {
 
 .navbar {
   background-color: rgba(108, 247, 108, 0.678);
+  z-index: 1;
   width: 100%;
-  height: 3rem;
   padding-right: 3rem;
   padding-left: 3rem;
   font-family: 'Raleway', sans-serif;
@@ -85,11 +85,6 @@ button {
   text-align: right;
 }
 
-.nav-link {
-	padding: 1rem 0;
-	display: flex;
-	align-items: center;
-}
 
 .nav-link:hover {
 	font-weight: bold;
@@ -188,7 +183,7 @@ button {
   /* Footer */
 
   footer{
-	position: fixed;
+	position: relative;
   	left: 0;
   	bottom: 0;
 	width: 100%;
@@ -503,4 +498,17 @@ width: 8.5rem;
 		font-size: 18px;
 		margin-bottom: 1rem;
 	}
+
+/* NAVBAR */
+
+.navbar {
+	height: 3rem;
+  }
+
+.nav-link {
+	padding: 1rem 0;
+	display: flex;
+	align-items: center;
+	z-index: 1;
+}
   }

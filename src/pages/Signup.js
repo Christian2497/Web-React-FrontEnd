@@ -64,20 +64,20 @@ class Signup extends Component {
   render() {
     const { username, email, weight, goal, password, repeatPassword } = this.state;
     return (
-      <div>
+      <div className="sign-up">
         <h1 className="signup-title">Sign Up</h1>
 
         <form className="signup-form" onSubmit={this.handleFormSubmit}>
           <div>
           <label>Username:</label>
-          <input type="text" name="username" value={username} onChange={this.handleChange} required/>
+          <input type="text" name="username" value={username} onChange={this.handleChange} placeholder="ej: Alex" required/>
           {this.state.isError.username.length > 0 && (
                         <span className="invalid-feedback">{this.state.isError.username}</span>
           )}
           </div>
           <div>
           <label>Email:</label>
-          <input type="email" name="email" value={email} onChange={ e => this.handleChange(e)} required/>
+          <input type="email" name="email" value={email} onChange={ e => this.handleChange(e)} placeholder="ej: test@test.com" required/>
           {this.state.isError.email.length > 0 && (
                         <span className="invalid-feedback">{this.state.isError.email}</span>
           )}
@@ -85,21 +85,21 @@ class Signup extends Component {
           </div>
           <div id="weight">
           <label>Weight:</label>
-          <input type="number" name="weight" value={weight} onChange={ e => this.handleChange(e)} />
+          <input type="number" name="weight" value={weight} onChange={ e => this.handleChange(e)} placeholder="ej: 50" />
 
           <label>Goal:</label>
-          <input type="number" name="goal" value={goal} onChange={ e => this.handleChange(e)} />
+          <input type="number" name="goal" value={goal} onChange={ e => this.handleChange(e)} placeholder="ej: 40" />
           </div>
           <div>
           <label>Password:</label>
-          <input type="password" name="password" value={password} onChange={ e => this.handleChange(e)} required/>
+          <input type="password" name="password" value={password} onChange={ e => this.handleChange(e)} placeholder="******" required/>
           {this.state.isError.password.length > 0 && (
                         <span className="invalid-feedback">{this.state.isError.password}</span>
           )}  
           </div>
           <div>
           <label>Repeat Password:</label>
-          <input type="password" name="repeatPassword" value={repeatPassword} onChange={ e => this.handleChange(e)} required/>
+          <input type="password" name="repeatPassword" value={repeatPassword} onChange={ e => this.handleChange(e)} placeholder="******" required/>
           {this.state.isError.repeatPassword.length > 0 && (
                         <span className="invalid-feedback">{this.state.isError.repeatPassword}</span>
           )} 

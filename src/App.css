@@ -498,6 +498,11 @@ width: 8.5rem;
 		flex-direction: row;
 		justify-content: space-around;
 	}
+
+	  /* ADD NEW VIDEO */
+	  .add-video-container {
+		margin: 0 20%;
+	}
   }
 
   @media screen and (min-width: 1000px){
@@ -565,4 +570,14 @@ width: 8.5rem;
 	align-items: center;
 	z-index: 1;
 }
+
+  /* ADD NEW VIDEO */
+  .add-video-container {
+	margin: 0 32%;
+}
+
+
+
+
   }
+

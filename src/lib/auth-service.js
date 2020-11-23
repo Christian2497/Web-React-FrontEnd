@@ -29,9 +29,9 @@ class Auth {
     return this.auth.get("/me").then(({ data }) => data);
   }
 
-  addExercise({ title, description, url, intensity, muscle }) {
+  addExercise({ userId, title, description, url, intensity, muscle }) {
     return this.auth
-      .post("/profile/:id/add-video", { title, description, url, intensity, muscle  })
+      .post(`/profile/${userId}/add-video`, { title, description, url, intensity, muscle  })
       .then(({ data }) => data);
   }
   

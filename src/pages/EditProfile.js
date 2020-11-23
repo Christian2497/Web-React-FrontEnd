@@ -8,22 +8,11 @@ class EditProfile extends Component {
         weight: this.props.user.weight,
         goal: this.props.user.goal,
     }
-
-   /*  componentDidMount() {
-      const userId = this.props.user._id
-    
-      return (
-          this.props.userInfo(userId)
-          .then(response => this.setState({ user: response }))
-          .catch(error => console.log(error))
-      )
-  } */
   
   
   handleFormSubmit = event => {
         event.preventDefault();
         const userId = this.props.user._id
-        console.log(userId, 'user id')
         const { username, weight, goal } = this.state;
         this.props.editProfile ({ userId, username, weight, goal});
         this.props.history.push("/profile/:id");
@@ -49,7 +38,6 @@ class EditProfile extends Component {
   };
 
     render() {
-        /* const { username, weight, goal, imgPath } = this.state; */
         return (
             <div >
               <h1 className="edit-profile-title">Edit your profile </h1>

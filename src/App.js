@@ -19,6 +19,7 @@ import EditProfile from "./pages/EditProfile";
 import AllExercises from "./pages/AllExercises";
 import ExerciseDetails from "./pages/ExerciseDetails";
 import FavouriteExercise from "./pages/Favourite";
+import Calendar from "./pages/Calendar";
 import Faq from "./pages/Faq";
 import FaqP from "./pages/FaqP";
 
@@ -41,6 +42,7 @@ class App extends Component {
             <PrivateRoute exact path="/profile/:id/add-video" component={AddVideo} />
             <PrivateRoute exact path="/profile/:id/edit" component={EditProfile} />
             <PrivateRoute exact path="/videos" component={AllExercises} />
+            <PrivateRoute exact path="/calendar" component={Calendar} />
             <PrivateRoute exact path="/videos/:id" component={ExerciseDetails} />
             {/* <PrivateRoute exact path="/videos/:id/edit" component={} /> */}
             <PrivateRoute exact path="/videos/favourites/:id" component={FavouriteExercise} />

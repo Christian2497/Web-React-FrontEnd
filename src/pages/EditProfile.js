@@ -4,28 +4,36 @@ import { withAuth } from "../lib/AuthProvider";
 class EditProfile extends Component {
     state = {
         username: this.props.user.username, 
-        weight: this.props.user.imgPath, 
-        goal: this.props.user.imgPath, 
+        weight: this.props.user.weight, 
+        goal: this.props.user.goal, 
         imgPath: this.props.user.imgPath,
     }
 
     handleFormSubmit = event => {
         event.preventDefault();
-        const { username, weight, goal, imgPath } = this.state;
-        this.props.user ({ username, weight, goal, imgPath })
-        console.log(this, 'este es el username')
-        };
-
-      handleChange = event => {
-        const { name, value } = event.target;
-        this.setState({ [name]: value });
+        const userId = this.props.user._id
+        const { username, weight, goal } = this.state;
+        console.log(this.props, "prooops")
+        this.props.editProfile ({ userId, username, weight, goal})
     };
 
-    componentWillUnmount() {
-        this.setState = (state, callback) => {
-          return;
-        };
-      }
+    handleChangeUsername = (event) => {
+      this.setState({
+          username: event.target.value
+      })
+    };
+
+  handleChangeWeight = (event) => {
+      this.setState({
+          weight: event.target.value
+      })
+  }; 
+
+  handleChangeGoal = (event) => {
+    this.setState({
+        goal: event.target.value
+    })
+  };
 
     render() {
         /* const { username, weight, goal, imgPath } = this.state; */
@@ -37,23 +45,23 @@ class EditProfile extends Component {
 
                 <div>
                 <label>Username:</label>
-                <input type="text" name="title" value={this.state.username} onChange={ e => this.handleChange(e)} />
+                <input type="text" name="title" value={this.state.username} onChange={ e => this.handleChangeUsername(e)} />
                 </div>
 
                 <div>
                 <label>Weight:</label>
-                <input type="number" name="description" value={this.state.weight} onChange={ e => this.handleChange(e)} />
+                <input type="number" name="description" value={this.state.weight} onChange={ e => this.handleChangeWeight(e)} />
                 </div>
 
                 <div>
                 <label>Goal:</label>
-                <input type="number" name="url" value={this.state.goal} onChange={ e => this.handleChange(e)} />
+                <input type="number" name="url" value={this.state.goal} onChange={ e => this.handleChangeGoal(e)} />
                 </div>
 
-                <div>
+                {/* <div>
                 <label> Photo:</label>
                 <input type="file" name="imgPath" value={this.state.imgPath} onChange={ e => this.handleChange(e)}/>
-                </div>
+                </div> */}
 
                 <input type="submit" value="Submit"/>
 

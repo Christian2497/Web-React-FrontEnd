@@ -28,14 +28,6 @@ class Profile extends Component {
         };
     }
 
-    editForm = () => {
-        if(!this.state.email){
-            this.userInfo();
-        } else{
-            return <EditProfile theUser={this.state} getProfile={this.userInfo} {...this.props} />
-        }
-    }
-
     render() {
         // console.log(this.props.user, 'info del user')
         

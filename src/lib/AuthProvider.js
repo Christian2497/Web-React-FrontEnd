@@ -109,9 +109,9 @@ class AuthProvider extends Component {
       )}
 
   editProfile = (user) => {
-    const { username, weight, goal, imgPath } = user;
+    const { _id, username, weight, goal} = user;
     auth
-      .editProfile({ username, weight, goal, imgPath })
+      .editProfile({ _id, username, weight, goal})
       .then((user) => this.setState({ isLoggedin: true, user }))  
       .catch(({ error }) =>
         this.setState({ message: error.data.statusMessage })
@@ -121,12 +121,12 @@ class AuthProvider extends Component {
 
   render() {
     const { isLoading, isLoggedin, user } = this.state;
-    const { login, logout, signup, addExercise, allVideos, userInfo } = this;
+    const { login, logout, signup, addExercise, allVideos, userInfo, editProfile } = this;
 
     return isLoading ? (
       <div>Loading</div>
     ) : (
-      <Provider value={{ isLoggedin, user, login, logout, signup, allVideos, addExercise, userInfo }}>
+      <Provider value={{ isLoggedin, user, login, logout, signup, allVideos, addExercise, userInfo, editProfile}}>
         {this.props.children}
       </Provider>
     );

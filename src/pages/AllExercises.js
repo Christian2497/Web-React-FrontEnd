@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { withAuth } from '../lib/AuthProvider';
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 class AllExercises extends Component {
     state = {

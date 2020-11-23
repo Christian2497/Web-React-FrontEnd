@@ -7,7 +7,19 @@ import EditProfile from "./EditProfile";
 class Profile extends Component {
     state = {
         weightDifference: 0,
+        user: "",
     }
+
+    componentDidMount() {
+        const userId = this.props.user._id
+      
+        return (
+            this.props.userInfo(userId)
+            .then(response => this.setState({ user: response }))
+            .catch(error => console.log(error))
+        )
+    }
+
 
     componentWillUnmount() {
         // fix Warning: Can't perform a React state update on an unmounted component
@@ -18,65 +30,28 @@ class Profile extends Component {
 
     editForm = () => {
         if(!this.state.email){
-            this.getSingleProject();
+            this.userInfo();
         } else{
-            return <EditProfile theUser={this.state} getProfile={this.getProfile} {...this.props} />
+            return <EditProfile theUser={this.state} getProfile={this.userInfo} {...this.props} />
         }
     }
 
-
-    /* componentDidMount = async () => {
-        const user = await axios.get("http://localhost:4000")
-        this.setState({ user: user.data})
-        console.log(this.props.user, 'this is  the user')
-    } */
-
-    
-//   ESTOY INTENTANDO HACER LA DIFERENCIA ENTRE EL PESO Y EL OBJETIVO PERO NO ME SALE
-
-//     subtraction = (arr) => {
-//     if (Object.prototype.toString.call(arr) === '[object Array]') {
-//     var total = arr[0];
-//     if (typeof (total) !== 'number') {
-//       return false;
-//     }
-//     for (var i = 1, length = arr.length; i < length; i++){
-//       if (typeof (arr[i]) === 'number'){
-//         total -= arr[i];
-//       }else 
-//       return false;
-//     }
-//     return total;
-//    } 
-//     else
-//      return false;
-//   }
-    
-//   weightDifference = (weight, goal) => {
-//     weight = this.props.user.weight;
-//     goal = this.props.user.goal;
-//     const difference = weight - goal;
-//     this.setState({ weightDifference: difference})
-//     console.log(this.state.weightDifference, 'esta es la diferencia')
-// }
-  
-
-
     render() {
+        // console.log(this.props.user, 'info del user')
         
         return (
         <div className="perfil">
             <div className="profile-container">
             <div className="profile">
             <div>
-            <img className="profile-image" src={this.props.user.imgPath} alt="user" width="500" />
-            <a  href={`/profile/${this.props.user._id}/edit`}><img className="profile-edit" src="/images/edit-icon.svg" alt="pencil" width="100"/></a>
+            <img className="profile-image" src={this.state.user.imgPath} alt="user" width="500" />
+            <a  href={`/profile/${this.state.user._id}/edit`}><img className="profile-edit" src="/images/edit-icon.svg" alt="pencil" width="100"/></a>
             </div>
-            <h1 className="profile-text">Hello, {this.props.user.username}. Welcome to your profile.</h1>
-               <p className="profile-text">Current weight: {this.props.user.weight}kg</p>
-               <p className="profile-text">Goal: {this.props.user.goal}kg</p>
-               <p className="profile-text">You have {this.weightDifference}kg left.</p>
-               <button><Link to={`/videos/favourites/${this.props.user._id}`} className="">
+            <h1 className="profile-text">Hello, {this.state.user.username}. Welcome to your profile.</h1>
+               <p className="profile-text">Current weight: {this.state.user.weight}kg</p>
+               <p className="profile-text">Goal: {this.state.user.goal}kg</p>
+               <p className="profile-text">You have {this.state.user.weight - this.state.user.goal}kg left.</p>
+               <button><Link to={`/videos/favourites/${this.state.user._id}`} className="">
                Favourite videos
                 </Link></button>
                <button><Link to={`/profile/${this.props.user._id}/add-video`} >Add new video</Link></button>

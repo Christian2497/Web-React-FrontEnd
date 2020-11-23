@@ -81,6 +81,7 @@ class Signup extends Component {
           {this.state.isError.email.length > 0 && (
                         <span className="invalid-feedback">{this.state.isError.email}</span>
           )}
+          
           </div>
           <div id="weight">
           <label>Weight:</label>

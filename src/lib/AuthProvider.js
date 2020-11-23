@@ -93,14 +93,10 @@ class AuthProvider extends Component {
     }
   };
 
-  userInfo = async (user) => {
-    const { username, weight, goal, imgPath } = user
-    try {
-      await auth.userInfo({ username, weight, goal, imgPath });
-      this.setState({ isLoggedin: true, user })
-    } catch (error) {
-      
-    }
+  userInfo = (id) => {
+      return auth.userInfo(id)
+      .then(user =>  user)
+      .catch(error => console.log(error))
   }
 
   allVideos = (exercise) => {
@@ -125,12 +121,12 @@ class AuthProvider extends Component {
 
   render() {
     const { isLoading, isLoggedin, user } = this.state;
-    const { login, logout, signup, addExercise, allVideos } = this;
+    const { login, logout, signup, addExercise, allVideos, userInfo } = this;
 
     return isLoading ? (
       <div>Loading</div>
     ) : (
-      <Provider value={{ isLoggedin, user, login, logout, signup, allVideos, addExercise }}>
+      <Provider value={{ isLoggedin, user, login, logout, signup, allVideos, addExercise, userInfo }}>
         {this.props.children}
       </Provider>
     );

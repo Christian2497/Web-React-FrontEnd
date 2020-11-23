@@ -17,7 +17,8 @@ class Auth {
   login({ email, password }) {
     return this.auth
       .post("/login", { email, password })
-      .then(({ data }) => data);
+      .then(({ data }) =>  data);
+
   }
 
   logout() {
@@ -40,9 +41,9 @@ class Auth {
     .then(({ data }) => data);
   }
 
-  userInfo({ username, email, weight, goal }){
+  userInfo(_id){
     return this.auth
-    .get("/profile/:id", { username, email, weight, goal })
+    .get(`/profile/${_id}`, {})
     .then(({ data }) => data);
   }
 

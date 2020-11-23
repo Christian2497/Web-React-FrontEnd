@@ -24,7 +24,7 @@ class AllExercises extends Component {
     getTheSingleExercise = () => {
       const { params } = this.props.match;
   
-      axios.get(`http://localhost:4000/videos/${params._id}`)
+      axios.get(process.env.REACT_APP_API_URI + `/videos/${params._id}`)
   
       .then( responseFromApi =>{
         const theExercise = responseFromApi.data;
@@ -32,7 +32,8 @@ class AllExercises extends Component {
         this.setState(theExercise);
       })
       .catch((err)=>{
-          console.log(err)
+          console.log(err, 'no se ha encontrado ejercicio')
+          console.log(process.env.REACT_APP_API_URI + `/videos/${params._id}`)
       })
     }
 
@@ -42,7 +43,7 @@ class AllExercises extends Component {
             
         <div>
         <h1>Exercise list</h1>
-          { this.exercises.map( exercise => {
+          {/* { this.exercises.map( exercise => {
             return (
               <div key={exercise._id}>
                 <Link to={`/videos/${exercise._id}`}>
@@ -51,7 +52,7 @@ class AllExercises extends Component {
                 <p style={{maxWidth: '400px'}} >{exercise.description} </p> 
               </div>
             )})
-          }
+          } */}
         </div>
         )
     }

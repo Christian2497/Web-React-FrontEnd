@@ -11,13 +11,17 @@ class AddVideo extends Component {
         url: "",
         intensity: "",
         muscle: "",
+        isError: {
+          muscle: '',
+          intensity: ''
+        }
     }
   }
 
     handleFormSubmit = event => {
         event.preventDefault();
-        const { title, description, url, intensity, muscle } = this.state
-        this.props.addExercise ({ title, description, url, intensity, muscle })
+        const { title, description, url, intensity, muscle, isError } = this.state
+        this.props.addExercise ({ title, description, url, intensity, muscle, isError })
         .then(() => {
           this.props.getData();
           this.setState({ 
@@ -33,7 +37,20 @@ class AddVideo extends Component {
 
       handleChange = event => {
         const { name, value } = event.target;
-        this.setState({ [name]: value });
+        let isError = { ...this.state.isError };
+        switch (name) {
+          case "intensity":
+              isError.intensity =
+                  value.length === 0  ? "Choose one " : "";
+              break;
+          case "muscle":
+              isError.muscle = 
+              value.length === 0  ? "Choose one" : "Email address is invalid";
+          break;
+          default:
+          break;
+        }
+        this.setState({isError, [name]: value });
       };
     
       errorMessage = () => {
@@ -64,17 +81,18 @@ class AddVideo extends Component {
                 <div className="add-video-selectors">
                 <label>Intensity:</label>
                 <select name="intensity" value={intensity} onChange={ e => this.handleChange(e)} required>
-                  <option hidden selected disabled value> -- select an option -- </option>
-                  <option selected value="low">Low</option>
+                  <option selected value> -- select an option -- </option>
+                  <option value="low">Low</option>
                   <option value="medium">Not so low</option>
                 </select>
-                
+                {this.state.isError.intensity.length > 0 && (
+                <span className="invalid-feedback">{this.state.isError.intensity}</span>)}
                 </div>
                 
                 <div className="add-video-selectors">
                 <label>Muscle:</label>
                 <select name="muscle" value={muscle} onChange={ e => this.handleChange(e)} required>
-                  <option hidden selected disabled value> -- select an option -- </option>
+                  <option selected value> -- select an option -- </option>
                   <option value="abs">Abs</option>
                   <option value="arms">Arms</option>
                   <option value="back">Back</option>
@@ -82,6 +100,9 @@ class AddVideo extends Component {
                   <option value="legs">Legs</option>
                   <option value="shoulders">Shoulders</option>
                 </select>
+                {this.state.isError.muscle.length > 0 && (
+                <span className="invalid-feedback">{this.state.isError.muscle}</span>)}
+                
                 </div>
                 </div>
                 <div className="add-video-button-div">

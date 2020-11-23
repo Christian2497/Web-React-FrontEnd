@@ -353,6 +353,55 @@ padding: 1rem 0;
 	width: 100%;
 }
 
+/* EDIT PROFILE  */
+.edit-profile-title {
+	text-align: center;
+	font-size: 2.5rem;
+	padding: 2rem 0 3rem;
+}
+
+.edit-profile-form {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.edit-profile-form div {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+.edit-profile-form label {
+	padding: 0.5rem 0;
+}
+	
+.edit-profile-form input {
+	margin: 1rem 1rem 2rem;
+}
+	
+.edit-profile-button {
+	padding: 0.5rem 1rem 0;
+	margin: 1rem 0 0 0;
+}
+
+#edit-weight {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+}
+
+#edit-weight input {
+	width: 20%;
+}
+
+#edit-weight label {
+	width: 20%;
+}
+
 /* ADD NEW VIDEO */
 
 .add-video-title {

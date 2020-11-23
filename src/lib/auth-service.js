@@ -35,9 +35,9 @@ class Auth {
       .then(({ data }) => data);
   }
   
-  editProfile({ _id, username, weight, goal }) {
+  editProfile({ userId, username, weight, goal }) {
     return this.auth
-    .put(`/profile/${_id}/edit`, { username, weight, goal})
+    .put(`/profile/${userId}/edit`, { userId, username, weight, goal})
     .then(({ data }) => data);
   }
 

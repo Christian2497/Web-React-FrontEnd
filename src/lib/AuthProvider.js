@@ -113,13 +113,12 @@ class AuthProvider extends Component {
       }
 
   editProfile = (user) => {
-    const { _id, username, weight, goal} = user;
+    const { userId, username, weight, goal} = user;console.log(userId, 'el user')
     auth
-      .editProfile({ _id, username, weight, goal})
+      .editProfile({ userId, username, weight, goal})
       .then((user) => this.setState({ isLoggedin: true, user }))  
-      .catch(({ error }) =>
-        this.setState({ message: error.data.statusMessage })
-      ); 
+      
+      .catch(error => console.log(error, 'no se ha podido'))
   };
 
 

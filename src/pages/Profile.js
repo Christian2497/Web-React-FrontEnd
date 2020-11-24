@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withAuth } from '../lib/AuthProvider';
+import axios from "axios";
 import { Link } from "react-router-dom";
-// import '~video-react/dist/video-react.css';
 
 class Profile extends Component {
     state = {

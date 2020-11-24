@@ -20,8 +20,9 @@ class AddVideo extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
+        const userId = this.props.user._id
         const { title, description, url, intensity, muscle, isError } = this.state
-        this.props.addExercise ({ title, description, url, intensity, muscle, isError })
+        this.props.addExercise ({ userId, title, description, url, intensity, muscle, isError })
         .then(() => {
           this.props.getData();
           this.setState({ 
@@ -31,6 +32,7 @@ class AddVideo extends Component {
             intensity: "",
             muscle: "",
           })
+          this.props.history.push("/profile/:id");
         })
           .catch(error => console.log(error));
         };
@@ -45,7 +47,7 @@ class AddVideo extends Component {
               break;
           case "muscle":
               isError.muscle = 
-              value.length === 0  ? "Choose one" : "Email address is invalid";
+              value.length === 0  ? "Choose one" : "";
           break;
           default:
           break;
@@ -59,7 +61,7 @@ class AddVideo extends Component {
     render() {
         const { title, description, url, intensity, muscle } = this.state;
         return (
-            <div>
+            <div className="add-video-container">
                 <h1 className="add-video-title">Create a new exercise</h1>
 
                 <form className="add-video-form" onSubmit={this.handleFormSubmit}>
@@ -81,7 +83,7 @@ class AddVideo extends Component {
                 <div className="add-video-selectors">
                 <label>Intensity:</label>
                 <select name="intensity" value={intensity} onChange={ e => this.handleChange(e)} required>
-                  <option selected value> -- select an option -- </option>
+                  <option defaultValue value> -- select an option -- </option>
                   <option value="low">Low</option>
                   <option value="medium">Not so low</option>
                 </select>
@@ -92,7 +94,7 @@ class AddVideo extends Component {
                 <div className="add-video-selectors">
                 <label>Muscle:</label>
                 <select name="muscle" value={muscle} onChange={ e => this.handleChange(e)} required>
-                  <option selected value> -- select an option -- </option>
+                  <option defaultValue value> -- select an option -- </option>
                   <option value="abs">Abs</option>
                   <option value="arms">Arms</option>
                   <option value="back">Back</option>

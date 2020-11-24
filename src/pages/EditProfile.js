@@ -54,7 +54,6 @@ class EditProfile extends Component {
   };
 
     render() {
-        /* const { username, weight, goal, imgPath } = this.state; */
         return (
             <div >
               <h1 className="edit-profile-title">Edit your profile </h1>

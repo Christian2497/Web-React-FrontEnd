@@ -4,17 +4,13 @@ import { Link } from "react-router-dom";
 
 class AllExercises extends Component {
     state = {
-        exercise: '',
+      listOfVideos: [],
+        
       };
 
-    componentDidMount = async () => {
-      const exercisesId = this.props.exercise
-      
-      return (
-          this.props.allExercises(exercisesId)
-          .then(response => this.setState({ exercise: response }))
-          .catch(error => console.log(error))
-      )
+    componentDidMount = () => {
+          this.allVideos();
+          console.log( this.allVideos(), 'all exercises')
     }
 
     // allExercises = async () => {
@@ -28,12 +24,13 @@ class AllExercises extends Component {
 
 
     render() {
-        
+      console.log(this.state.exercises, 'los exercises')
         return (
             
         <div>
         <h1>Exercise list</h1>
-
+        { this.state.listOfVideos.map( exercise => {
+            return (
             
               <div key={this.state.exercise._id}>
                 <Link to={`/videos/${this.state.exercise._id}`}>
@@ -41,7 +38,7 @@ class AllExercises extends Component {
                 </Link>
                 <p style={{maxWidth: '400px'}} >{this.state.exercise.description} </p> 
               </div>
-          }
+        )})}
         </div>
         )
     }

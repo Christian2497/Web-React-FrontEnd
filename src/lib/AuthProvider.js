@@ -116,9 +116,10 @@ class AuthProvider extends Component {
   };
 
   allVideos = () => {
-    auth.allVideos()
-    .then(responseFromApi => {
-      this.setState({ listOfVideos: responseFromApi.data });
+    auth
+    .allVideos()
+    .then((listOfVideos) => {this.setState({ isLoggedin: true, listOfVideos: listOfVideos.data })
+    .catch((error) => console.log(error));
   })};
 
   editProfile = (user) => {

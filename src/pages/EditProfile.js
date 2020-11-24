@@ -3,19 +3,34 @@ import { withAuth } from "../lib/AuthProvider";
 
 class EditProfile extends Component {
     state = {
-        /* user: "", */
-        username: this.props.user.username,
-        weight: this.props.user.weight,
-        goal: this.props.user.goal,
+        user: '', 
+        username: '',
+        weight: '',
+        goal: '',
     }
   
-  
-  handleFormSubmit = event => {
-        event.preventDefault();
+    componentDidMount() {
         const userId = this.props.user._id
+      
+        return (
+            this.props.userInfo(userId)
+            .then(response => this.setState({ 
+                user: response, 
+                username: response.username, 
+                weight: response.weight,
+                goal: response.goal
+             }))
+            .catch(error => console.log(error))
+        )
+    }
+
+  handleFormSubmit  = event => {
+        event.preventDefault();
+        const userId = this.state.user._id
         const { username, weight, goal } = this.state;
-        this.props.editProfile ({ userId, username, weight, goal});
-        this.props.history.push("/profile/:id");
+        this.props.editProfile ({ userId, username, weight, goal})
+        this.props.userInfo(userId)
+        this.props.history.push(`/profile/${userId}`);
   };
 
     

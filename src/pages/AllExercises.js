@@ -7,7 +7,7 @@ import ReactPlayer from 'react-player/youtube'
 class AllExercises extends Component {
     state = {
       listOfVideos: [],
-        
+      videosToShow: this.state.listOfVideos
       };
 
     allExercises = async () => {

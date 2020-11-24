@@ -1,18 +1,13 @@
 import React, { Component } from "react";
 import "./App.css";
-import ReactPlayer from 'react-player'
 import { Switch } from "react-router-dom";
-
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import AddVideo from "./pages/AddVideo";
-
-
 import AuthProvider from "./lib/AuthProvider";
-
 import AnonRoute from "./components/AnonRoute";
 import PrivateRoute from "./components/PrivateRoute";
 import EditProfile from "./pages/EditProfile";

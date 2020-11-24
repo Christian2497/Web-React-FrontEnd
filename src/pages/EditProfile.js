@@ -8,7 +8,23 @@ class EditProfile extends Component {
         weight: '',
         goal: '',
     }
+
+    componentDidMount() {
+      const userId = this.props.user._id
+    
+      return (
+          this.props.userInfo(userId)
+          .then(response => this.setState({ 
+            user: response,
+            username: response.username,
+            weight: response.weight,
+            goal: response.goal
+            }))
+          .catch(error => console.log(error))
+      )
+  }
   
+<<<<<<< HEAD
     componentDidMount() {
         const userId = this.props.user._id
       
@@ -29,6 +45,14 @@ class EditProfile extends Component {
         const userId = this.state.user._id
         const { username, weight, goal } = this.state;
         this.props.editProfile ({ userId, username, weight, goal})
+=======
+  
+  handleFormSubmit = event => {
+        event.preventDefault();
+        const userId = this.state.user._id
+        const { username, weight, goal } = this.state;
+        this.props.editProfile ({ userId, username, weight, goal});
+>>>>>>> 9a9f5b34e28e63baba3c30e22446b2f3dabe6bb9
         this.props.userInfo(userId)
         this.props.history.push(`/profile/${userId}`);
   };
@@ -71,10 +95,10 @@ class EditProfile extends Component {
                     <label>Goal:</label>
                     <input type="number" name="goal" value={this.state.goal} onChange={ e => this.handleChangeGoal(e)} />
                 </div>
-                {/* <div>
+                <div>
                 <label> Photo:</label>
                 <input type="file" name="imgPath" value={this.state.imgPath} onChange={ e => this.handleChange(e)}/>
-                </div> */}
+                </div>
 
                 <input className="edit-profile-button" type="submit" value="Submit"/>
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withAuth } from '../lib/AuthProvider';
 import { Link } from "react-router-dom";
 import auth from "../lib/auth-service";
-import { Player } from 'video-react';
+import ReactPlayer from 'react-player/youtube'
 
 class AllExercises extends Component {
     state = {
@@ -34,12 +34,10 @@ class AllExercises extends Component {
             return (
             
               <div className="exercise-list-container" key={exercise._id}>
-              <Player>
-                <source src={exercise.url} />
-                </Player>
-                <Link to={`/videos/${exercise._id}`}>
-                  <h3>Title: {exercise.title}</h3>
-                </Link>
+              <ReactPlayer controls={true} url={exercise.url}/>
+              <h3>Title:<Link to={`/videos/${exercise._id}`}>
+                   {exercise.title}
+                </Link></h3>
                 <p style={{maxWidth: '400px'}} >Muscle: {exercise.muscle} Intensity: {exercise.intensity} </p> 
               </div>
               

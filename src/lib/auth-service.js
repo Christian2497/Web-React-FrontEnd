@@ -3,7 +3,7 @@ class Auth {
   constructor() {
     this.auth = axios.create({
       baseURL: process.env.REACT_APP_API_URI,
-      //baseURL: 'http://localhost:4000',
+
       withCredentials: true,  
     });
   }

@@ -21,6 +21,7 @@ class EditProfile extends Component {
             username: response.username,
             weight: response.weight,
             goal: response.goal,
+            imgPath: response.imgPath
             }))
           .catch(error => console.log(error))
       )
@@ -66,6 +67,9 @@ class EditProfile extends Component {
     uploadData.append("imgPath", e.target.files[0]);
     try {
       const res = await service.handleUpload(uploadData);
+      if(res.secure_url === "" || res.secure_url === undefined){
+        return
+      }
       this.setState({ imgPath: res.secure_url });
     } catch (error) {
       console.log("Error while uploading the file: ", error);

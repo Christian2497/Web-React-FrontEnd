@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withAuth } from "../lib/AuthProvider";
 import { Link } from "react-router-dom";
+import auth from "../lib/auth-service";
 
 class FavouriteExercise extends Component {
   state = {
@@ -8,38 +9,44 @@ class FavouriteExercise extends Component {
     exercises: [],
 }
 
-componentDidMount = async () => {
-    await this.favExercises()
-}
+
 
 favExercises = async () =>  {
-      const losFav = this.props.user.favourite;
-      const listOfFav =  await losFav.map(
-        async (fav) => { 
-          return await this.props.exerciseInfo(fav) 
-        })
-      console.log(listOfFav, 'list of fav')
-      await this.setState({exercises: listOfFav})
+      try {
+        const losFav = this.props.user.favourite;
+        console.log(losFav, 'los fav')
+        const exercises = await losFav;
+        console.log(exercises, 'exercises')
+        await this.setState({ exercises: exercises })
+        } catch (error) {
+          console.log(error)
+      }
     }
 
-
+    componentDidMount = async () => {
+       const favourites = this.favExercises()
+       const favDetails = this.props.exerciseInfo(favourites)
+       await this.setState({ exercises: favDetails })
+  }
 
     render() {
         console.log(this.state.exercises, 'son las props del favorito')
         return (
             <div>
         <h1>Favourite list</h1>
-              <div >
-              { this.props.user.favourite.map((favourite, index) => {
-                    return <li key={index}>favouser{}</li>
-                  })
-                  }
-                <h3>Title: <Link to={`/videos/${this.state.exercises._id}`}>{this.state.exercises.title}</Link></h3>
-                <p style={{maxWidth: '400px'}} >Description: {this.state.exercises.description} </p> 
-              </div>
+              
+               { this.state.exercises ? this.state.exercises.map((favourite, index) => {
+                    return (
+                      <div>
+                      <li key={index}>favouser</li>
+                      <p>Title: <Link to={`/videos/${favourite}`}>{favourite.title}</Link></p>
+                      <p style={{maxWidth: '400px'}} >Description: {favourite.description} </p> 
+                      </div>
+                      )}) : <p>Loading...</p>} 
+            </div>
             )
-        </div>
-        )
+        
+        
     }
 }
 export default withAuth(FavouriteExercise);

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withAuth } from '../lib/AuthProvider';
 import { Link } from "react-router-dom";
 import auth from "../lib/auth-service";
+import { Player } from 'video-react';
 
 class AllExercises extends Component {
     state = {
@@ -9,15 +10,10 @@ class AllExercises extends Component {
         
       };
 
-    
-
     allExercises = async () => {
-        console.log('entra al all exercises')
         try {
         const exercises = await auth.allVideos();
-        console.log(exercises, 'exercises')
         await this.setState({ listOfVideos: exercises })
-        console.log(this.state.listOfVideos, 'estos todos los exercises de all exercises')
       } catch (error) {
           console.log(error)
       }
@@ -32,17 +28,23 @@ class AllExercises extends Component {
         return (
             
         <div>
-        <h1>Exercise list</h1>
+        <h1 className="exercise-list-title">Exercise list</h1>
+        <div className="exercise-list-container-tablet">
         { this.state.listOfVideos ? this.state.listOfVideos.map( exercise => {
             return (
             
-              <div key={exercise._id}>
+              <div className="exercise-list-container" key={exercise._id}>
+              <Player>
+                <source src={exercise.url} />
+                </Player>
                 <Link to={`/videos/${exercise._id}`}>
-                  <h3>{exercise.title}</h3>
+                  <h3>Title: {exercise.title}</h3>
                 </Link>
-                <p style={{maxWidth: '400px'}} >{exercise.description} </p> 
+                <p style={{maxWidth: '400px'}} >Muscle: {exercise.muscle} Intensity: {exercise.intensity} </p> 
               </div>
+              
         )}) : <p>Loading...</p>}
+        </div>
         </div>
         )
     }

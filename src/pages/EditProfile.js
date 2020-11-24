@@ -25,6 +25,13 @@ class EditProfile extends Component {
           .catch(error => console.log(error))
       )
     }
+
+    componentWillUnmount() {
+      // fix Warning: Can't perform a React state update on an unmounted component
+      this.setState = (state, callback) => {
+        return;
+      };
+  }
   
   handleFormSubmit = event => {
         event.preventDefault();
@@ -55,13 +62,10 @@ class EditProfile extends Component {
   };
 
   handleFileUpload = async (e) => {
-    console.log("The file to be uploaded is: ", e.target.files[0]);
     const uploadData = new FormData();
     uploadData.append("imgPath", e.target.files[0]);
     try {
-      console.log(uploadData, "uploadData")
       const res = await service.handleUpload(uploadData);
-      console.log("response is: ", res);
       this.setState({ imgPath: res.secure_url });
     } catch (error) {
       console.log("Error while uploading the file: ", error);

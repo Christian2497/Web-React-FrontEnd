@@ -127,7 +127,6 @@ class AuthProvider extends Component {
     auth
       .editProfile({ userId, username, weight, goal, imgPath })
       .then((user) => this.setState({ isLoggedin: true, user }))
-
       .catch((error) => console.log(error, "no se ha podido"));
   };
 

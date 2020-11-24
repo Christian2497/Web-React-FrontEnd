@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import { withAuth } from "../lib/AuthProvider";
+import  service  from "../lib/service";
 
 class EditProfile extends Component {
     state = {
-        user: '', 
-        username: '',
-        weight: '',
-        goal: '',
+        user: "",
+        username: "",
+        weight: "",
+        goal: "",
+        imgPath: ""
     }
 
     componentDidMount() {
@@ -18,18 +20,24 @@ class EditProfile extends Component {
             user: response,
             username: response.username,
             weight: response.weight,
-            goal: response.goal
+            goal: response.goal,
             }))
           .catch(error => console.log(error))
       )
+    }
+
+    componentWillUnmount() {
+      // fix Warning: Can't perform a React state update on an unmounted component
+      this.setState = (state, callback) => {
+        return;
+      };
   }
-  
   
   handleFormSubmit = event => {
         event.preventDefault();
         const userId = this.state.user._id
-        const { username, weight, goal } = this.state;
-        this.props.editProfile ({ userId, username, weight, goal});
+        const { username, weight, goal, imgPath } = this.state;
+        this.props.editProfile ({ userId, username, weight, goal, imgPath});
         this.props.userInfo(userId)
         this.props.history.push(`/profile/${userId}`);
   };
@@ -53,12 +61,23 @@ class EditProfile extends Component {
     })
   };
 
+  handleFileUpload = async (e) => {
+    const uploadData = new FormData();
+    uploadData.append("imgPath", e.target.files[0]);
+    try {
+      const res = await service.handleUpload(uploadData);
+      this.setState({ imgPath: res.secure_url });
+    } catch (error) {
+      console.log("Error while uploading the file: ", error);
+    }
+  };
+
     render() {
         return (
             <div >
               <h1 className="edit-profile-title">Edit your profile </h1>
 
-                <form className="edit-profile-form" onSubmit={this.handleFormSubmit}>
+                <form className="edit-profile-form" onSubmit={this.handleFormSubmit} encType="multipart/form-data">
 
                 <div>
                 <label>Username:</label>  
@@ -74,7 +93,8 @@ class EditProfile extends Component {
                 </div>
                 <div>
                 <label> Photo:</label>
-                <input type="file" name="imgPath" value={this.state.imgPath} onChange={ e => this.handleChange(e)}/>
+                <input type="file" name="imgPath" onChange={ e => this.handleFileUpload(e)}/>
+                {/* <input type="hidden" name="previousImg" /> */}
                 </div>
 
                 <input className="edit-profile-button" type="submit" value="Submit"/>

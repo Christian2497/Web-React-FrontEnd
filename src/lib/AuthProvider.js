@@ -123,11 +123,10 @@ class AuthProvider extends Component {
   })};
 
   editProfile = (user) => {
-    const { userId, username, weight, goal } = user;
+    const { userId, username, weight, goal, imgPath } = user;
     auth
-      .editProfile({ userId, username, weight, goal })
+      .editProfile({ userId, username, weight, goal, imgPath })
       .then((user) => this.setState({ isLoggedin: true, user }))
-
       .catch((error) => console.log(error, "no se ha podido"));
   };
 

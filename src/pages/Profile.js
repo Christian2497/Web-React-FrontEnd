@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { withAuth } from '../lib/AuthProvider';
- //import axios from "axios";
 import { Link } from "react-router-dom";
 // import '~video-react/dist/video-react.css';
-
 
 class Profile extends Component {
     state = {
@@ -44,7 +42,6 @@ class Profile extends Component {
                <p className="profile-text">You have {this.state.user.weight - this.state.user.goal}kg left.</p>
                <button><Link to={`/videos/favourites/${this.state.user._id}`} className="">Favourite videos</Link></button>
                <button><Link to={`/profile/${this.props.user._id}/add-video`} >Add new video</Link></button>
-               
             </div>
             </div>
         </div>

@@ -7,7 +7,7 @@ import ReactPlayer from 'react-player/youtube'
 class AllExercises extends Component {
     state = {
       listOfVideos: [],
-      videosToShow: this.state.listOfVideos
+      //videosToShow: this.state.listOfVideos
       };
 
     allExercises = async () => {
@@ -24,25 +24,32 @@ class AllExercises extends Component {
     }
 
     render() {
-      console.log(this.state.listOfVideos, 'los exercises del render')
-        return (
-            
+      return (
         <div>
-        <h1 className="exercise-list-title">Exercise list</h1>
-        <div className="exercise-list-container-tablet">
-        { this.state.listOfVideos ? this.state.listOfVideos.map( exercise => {
-            return (
-            
-              <div className="exercise-list-container" key={exercise._id}>
-              <ReactPlayer controls={true} url={exercise.url}/>
-              <h3>Title:<Link to={`/videos/${exercise._id}`}>
-                   {exercise.title}
-                </Link></h3>
-                <p style={{maxWidth: '400px'}} >Muscle: {exercise.muscle} Intensity: {exercise.intensity} </p> 
-              </div>
-              
-        )}) : <p>Loading...</p>}
-        </div>
+          <h1 className="exercise-list-title">Exercise list</h1>
+          <div className="exercise-list-container-tablet">
+          { this.state.listOfVideos ? this.state.listOfVideos.map( exercise => {
+              return (
+                <div className="exercise-list-container" key={exercise._id}>
+                <ReactPlayer  width='100%' height='100%' light={true} controls={true} url={exercise.url}/>
+                <h3>Workout:<Link className="link-no-style" to={`/videos/${exercise._id}`}> {exercise.title} </Link></h3>
+                <p >
+                <div className="all-videos-icons">
+                <p>
+                <img className="icon-video" src="../images/dumbbell-icon.svg" alt="dubbell"/> 
+                {exercise.muscle} 
+                </p><p>
+                <img className="icon-video-smaller" src="../images/thermometer-icon.svg" alt="thermometer"/> 
+                {exercise.intensity} 
+                </p><p>
+                <img className="icon-video" src="../images/clock-icon.svg" alt="clock"/>
+                {exercise.duration}min
+                </p>
+                </div>
+                </p> 
+                </div>
+                )}) : <p>Loading...</p>}
+          </div>
         </div>
         )
     }

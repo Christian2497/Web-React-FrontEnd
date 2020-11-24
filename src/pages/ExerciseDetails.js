@@ -20,13 +20,26 @@ class ExerciseDetails extends Component {
 
     render() {
         return (
-            <div className="profile-container">
-            <ReactPlayer controls={true} url={this.state.exercise.url}/>
-            <h1 className="profile-text">Name: {this.state.exercise.title}</h1>
-               <p className="profile-text">Description: {this.state.exercise.muscle}</p>
-               <p className="profile-text">Intensity: {this.state.exercise.intensity}</p>
-               <p className="profile-text">Muscle group: {this.state.exercise.description}</p>
-            </div>
+            <div>
+          <h1 className="exercise-details-title">Exercise details</h1>
+          <div className="exercise-details-container-tablet">
+                <div className="exercise-details-container" key={this.state.exercise._id}>
+                <div>
+                <h3>
+                <a  href={`/videos/favourites/${this.state.exercise._id}`}>
+                <img className="icon-like" src="../images/star-icon-empty.svg" alt="star"/> 
+                </a>{this.state.exercise.title}
+                </h3>
+                <ReactPlayer className="details-player"  controls={true} url={this.state.exercise.url}/>
+                <p><img className="icon-video" src="../images/clock-icon.svg" alt="clock"/> {this.state.exercise.duration}min video </p>
+                <p><img className="icon-video" src="../images/dumbbell-icon.svg" alt="dubbell"/> You will exercise your {this.state.exercise.muscle}</p> 
+                <p><img className="icon-video-smaller" src="../images/thermometer-icon.svg" alt="thermometer"/> It is {this.state.exercise.intensity} intensity</p> 
+                <p>Description: {this.state.exercise.description}</p>
+                </div>
+                
+                </div>
+          </div>
+        </div>
         )
     }
 }

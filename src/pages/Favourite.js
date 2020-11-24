@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withAuth } from "../lib/AuthProvider";
 import { Link } from "react-router-dom";
-//import auth from "../lib/auth-service";
+import ReactPlayer from 'react-player/youtube'
 
 class FavouriteExercise extends Component {
   state = {
@@ -9,26 +9,26 @@ class FavouriteExercise extends Component {
     exercises: [],
 }
 
-
     componentDidMount = async () => {
       const user = await this.props.userInfo(this.props.user._id)
       await this.setState({ exercises: user.favourite, user })
   }
 
-
     render() {
-        console.log(this.state.exercises, 'son las props del favorito')
         return (
             <div>
-        <h1>Favourite list</h1>
+              <h1 className="exercise-list-title">Favourite list</h1>
+              <div className="exercise-favourite-container-tablet">
                 { this.state.exercises ? this.state.exercises.map((favourite, index) => {
                     return (
-                      <div>
-                      <li key={index}>favouser</li>
-                      <p>Title: <Link to={`/videos/${favourite._id}`}>{favourite.title}</Link></p>
-                      <p style={{maxWidth: '400px'}} >Description: {favourite.description} </p> 
+                      <div className="exercise-favourite-container" key={index}>
+                      <ReactPlayer width='100%'height='100%' controls={true} url={favourite.url}/>
+                      <p>Workout: <Link className="link-no-style" to={`/videos/${favourite._id}`}>{favourite.title}</Link></p>
+                      <p>You will exercise your {favourite.muscle} || It is {favourite.intensity} intensity</p> 
+                      <p>Description: {favourite.description} </p> 
                       </div>
                       )}) : <p>Loading...</p>}  
+              </div>
             </div>
             )
     }

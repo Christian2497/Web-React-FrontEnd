@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import AddVideo from "./pages/AddVideo";
 
+
 import AuthProvider from "./lib/AuthProvider";
 
 import AnonRoute from "./components/AnonRoute";
@@ -24,6 +25,7 @@ import Faq from "./pages/Faq";
 import FaqP from "./pages/FaqP";
 
 import Footer from "./components/Footer";
+
 
 class App extends Component {
 

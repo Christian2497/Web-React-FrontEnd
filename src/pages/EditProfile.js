@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { withAuth } from "../lib/AuthProvider";
-import { service } from "../lib/service";
-
-import { auth } from "../lib/auth-service";
+import  service  from "../lib/service";
 
 class EditProfile extends Component {
     state = {
@@ -26,8 +24,7 @@ class EditProfile extends Component {
             }))
           .catch(error => console.log(error))
       )
-  }
-  
+    }
   
   handleFormSubmit = event => {
         event.preventDefault();
@@ -62,9 +59,10 @@ class EditProfile extends Component {
     const uploadData = new FormData();
     uploadData.append("imgPath", e.target.files[0]);
     try {
-      const res = await auth.handleUpload(uploadData);
+      console.log(uploadData, "uploadData")
+      const res = await service.handleUpload(uploadData);
       console.log("response is: ", res);
-      this.setState({ imagePath: res.auth_url });
+      this.setState({ imgPath: res.secure_url });
     } catch (error) {
       console.log("Error while uploading the file: ", error);
     }
@@ -91,8 +89,8 @@ class EditProfile extends Component {
                 </div>
                 <div>
                 <label> Photo:</label>
-                <input type="file" name="imgPath" value={this.state.imgPath} onChange={ e => this.handleChangeImgPath(e)}/>
-                <input type="hidden" name="previousImg" />
+                <input type="file" name="imgPath" onChange={ e => this.handleFileUpload(e)}/>
+                {/* <input type="hidden" name="previousImg" /> */}
                 </div>
 
                 <input className="edit-profile-button" type="submit" value="Submit"/>

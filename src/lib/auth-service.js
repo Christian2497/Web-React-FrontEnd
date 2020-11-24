@@ -59,14 +59,6 @@ class Auth {
       .then(({ data }) => data);
   }
 
-  handleUpload = async (id, theFile) => {
-    try {
-      const res = await this.service.put(`/profile/${id}`, theFile);
-      return res.data;
-    } catch (error) {
-      console.log(error);
-    }
-  };
 }
 
 const axiosRequestFunctions = new Auth(); 

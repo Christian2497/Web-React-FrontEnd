@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-// import '~video-react/dist/video-react.css';
-// import { Player } from 'video-react';
+import ReactPlayer from 'react-player'
 import { Switch } from "react-router-dom";
 
 import Navbar from "./components/Navbar";

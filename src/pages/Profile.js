@@ -1,12 +1,7 @@
 import React, { Component } from 'react'
 import { withAuth } from '../lib/AuthProvider';
-<<<<<<< HEAD
 import axios from "axios";
-import { Link } from 'react-router-dom';
-=======
 import { Link } from "react-router-dom";
-// import '~video-react/dist/video-react.css';
->>>>>>> 6b5687c7d691bd8bf373249156111bcd59ccac41
 
 class Profile extends Component {
     state = {
@@ -38,14 +33,6 @@ class Profile extends Component {
             <div className="profile-container">
             <div className="profile">
             <div>
-<<<<<<< HEAD
-            <Link to={`/profile/${this.props.user._id}/edit`}> Edit Profile </Link>
-            <img src={this.props.user.imgPath} alt="user picture" />
-            <h1>Hello, {this.props.user.username}. Welcome to your profile.</h1>
-               <p>{this.props.user.weight}</p>
-               <p>{this.props.user.goal}</p>
-               
-=======
             <img className="profile-image" src={this.state.user.imgPath} alt="user" width="500" />
             <a  href={`/profile/${this.state.user._id}/edit`}><img className="profile-edit" src="/images/edit-icon.svg" alt="pencil" width="100"/></a>
             </div>
@@ -56,7 +43,6 @@ class Profile extends Component {
                <button><Link to={`/videos/favourites/${this.state.user._id}`} className="">Favourite videos</Link></button>
                <button><Link to={`/profile/${this.props.user._id}/add-video`} >Add new video</Link></button>
             </div>
->>>>>>> 6b5687c7d691bd8bf373249156111bcd59ccac41
             </div>
         </div>
         )

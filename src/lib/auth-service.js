@@ -35,9 +35,9 @@ class Auth {
       .then(({ data }) => data);
   }
   
-  editProfile({ userId, username, weight, goal }) {
+  editProfile({ userId, username, weight, goal, imgPath }) {
     return this.auth
-    .put(`/profile/${userId}/edit`, { userId, username, weight, goal})
+    .put(`/profile/${userId}/edit`, { userId, username, weight, goal, imgPath})
     .then(({ data }) => data);
   }
 
@@ -58,6 +58,15 @@ class Auth {
       .get("/videos", { })
       .then(({ data }) => data);
   }
+
+  handleUpload = async (id, theFile) => {
+    try {
+      const res = await this.service.put(`/profile/${id}`, theFile);
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }
 
 const axiosRequestFunctions = new Auth(); 

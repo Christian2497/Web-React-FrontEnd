@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { withAuth } from "../lib/AuthProvider";
+import { service } from "../lib/service";
+
+import { auth } from "../lib/auth-service";
 
 class EditProfile extends Component {
     state = {
@@ -7,6 +10,7 @@ class EditProfile extends Component {
         username: "",
         weight: "",
         goal: "",
+        imgPath: ""
     }
 
     componentDidMount() {
@@ -18,7 +22,7 @@ class EditProfile extends Component {
             user: response,
             username: response.username,
             weight: response.weight,
-            goal: response.goal
+            goal: response.goal,
             }))
           .catch(error => console.log(error))
       )
@@ -28,8 +32,8 @@ class EditProfile extends Component {
   handleFormSubmit = event => {
         event.preventDefault();
         const userId = this.state.user._id
-        const { username, weight, goal } = this.state;
-        this.props.editProfile ({ userId, username, weight, goal});
+        const { username, weight, goal, imgPath } = this.state;
+        this.props.editProfile ({ userId, username, weight, goal, imgPath});
         this.props.userInfo(userId)
         this.props.history.push(`/profile/${userId}`);
   };
@@ -53,12 +57,25 @@ class EditProfile extends Component {
     })
   };
 
+  handleFileUpload = async (e) => {
+    console.log("The file to be uploaded is: ", e.target.files[0]);
+    const uploadData = new FormData();
+    uploadData.append("imgPath", e.target.files[0]);
+    try {
+      const res = await auth.handleUpload(uploadData);
+      console.log("response is: ", res);
+      this.setState({ imagePath: res.auth_url });
+    } catch (error) {
+      console.log("Error while uploading the file: ", error);
+    }
+  };
+
     render() {
         return (
             <div >
               <h1 className="edit-profile-title">Edit your profile </h1>
 
-                <form className="edit-profile-form" onSubmit={this.handleFormSubmit}>
+                <form className="edit-profile-form" onSubmit={this.handleFormSubmit} encType="multipart/form-data">
 
                 <div>
                 <label>Username:</label>  
@@ -74,7 +91,8 @@ class EditProfile extends Component {
                 </div>
                 <div>
                 <label> Photo:</label>
-                <input type="file" name="imgPath" value={this.state.imgPath} onChange={ e => this.handleChange(e)}/>
+                <input type="file" name="imgPath" value={this.state.imgPath} onChange={ e => this.handleChangeImgPath(e)}/>
+                <input type="hidden" name="previousImg" />
                 </div>
 
                 <input className="edit-profile-button" type="submit" value="Submit"/>

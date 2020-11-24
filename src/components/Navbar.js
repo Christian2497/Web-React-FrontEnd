@@ -8,7 +8,7 @@ class Navbar extends Component {
     return (
       <nav className="navbar navbar-expand-lg navbar-light " >
         <Link to={"/"} className="navbar-brand">
-          <h4>logo</h4>
+          <h4><img className="logo-navbar" src="../images/logo.png"/></h4>
         </Link>
         <button
           className="navbar-toggler"
@@ -26,24 +26,24 @@ class Navbar extends Component {
         <div className="navbar-nav ">
         {isLoggedin ? (
             <>
-                <Link to={`/profile/${user._id}`} className="nav-link active">
+                <Link to={`/profile/${user._id}`} className="nav-link">
                   My profile
                 </Link>
                 <Link to="/calendar" className="nav-link">
                   Calendar
                 </Link>
-                <Link to="/exercises" className="nav-link">
+                <Link to="/videos" className="nav-link">
                   Exercises
                 </Link>
-                <Link to="/faq" className="nav-link">
+                <Link to="/faqP" className="nav-link">
                   FAQ
                 </Link>
-                <button className='nav-link' onClick={logout}>Logout</button>
+                <button className='nav-link logout' onClick={logout}>Logout</button>
             </>
           ) : (
             <>
                   <Link to="/login" className="nav-link">Login</Link>
-                  <Link to="/signup" className="nav-link">Sign Up</Link>
+                  <Link to="/signup" className="nav-link ">Sign Up</Link>
                   <Link to="/faq" className="nav-link">FAQ</Link>
             </>
           )}

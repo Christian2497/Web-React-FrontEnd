@@ -12,7 +12,7 @@ class Signup extends Component {
     repeatPassword: "",
     message: "",
     isError: {
-      name: '',
+      username: '',
       email: '',
       password: '',
       repeatPassword: ''
@@ -22,7 +22,6 @@ class Signup extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     const { username, email, weight, goal, password, repeatPassword } = this.state;
-    //console.log('Signup -> form submit', { username, password });
     this.props.signup({ username, email, weight, goal, password, repeatPassword });
   };
 
@@ -35,7 +34,7 @@ class Signup extends Component {
 
         switch (name) {
             case "username":
-                isError.name =
+                isError.username =
                     value.length < 1  ? "Introduce your name " : "";
                 break;
             case "email":
@@ -59,60 +58,63 @@ class Signup extends Component {
   };
 
   errorMessage = () => {
-    this.setState({ message: "This email already exists. Try another one!"})
+      this.setState({ message: "This email already exists. Try another one!"})
   }
 
   render() {
     const { username, email, weight, goal, password, repeatPassword } = this.state;
     return (
-      <div>
-        <h1>Sign Up</h1>
+      <div className="sign-up">
+        <h1 className="signup-title">Sign Up</h1>
 
-        <form onSubmit={this.handleFormSubmit}>
+        <form className="signup-form" onSubmit={this.handleFormSubmit}>
           <div>
           <label>Username:</label>
-          <input type="text" name="username" value={username} onChange={this.handleChange} required/>
-          {this.state.isError.name.length > 0 && (
-                        <span className="invalid-feedback">{this.state.isError.name}</span>
+          <input type="text" name="username" value={username} onChange={this.handleChange} placeholder="ej: Alex" required/>
+          {this.state.isError.username.length > 0 && (
+                        <span className="invalid-feedback">{this.state.isError.username}</span>
           )}
           </div>
           <div>
           <label>Email:</label>
-          <input type="email" name="email" value={email} onChange={this.handleChange} required/>
+          <input type="email" name="email" value={email} onChange={ e => this.handleChange(e)} placeholder="ej: test@test.com" required/>
           {this.state.isError.email.length > 0 && (
                         <span className="invalid-feedback">{this.state.isError.email}</span>
           )}
+          
           </div>
+          <div id="weight">
           <label>Weight:</label>
-          <input type="number" name="weight" value={weight} onChange={this.handleChange} />
+          <input type="number" name="weight" value={weight} onChange={ e => this.handleChange(e)} placeholder="ej: 50" />
 
           <label>Goal:</label>
-          <input type="number" name="goal" value={goal} onChange={this.handleChange} />
-          
+          <input type="number" name="goal" value={goal} onChange={ e => this.handleChange(e)} placeholder="ej: 40" />
+          </div>
           <div>
           <label>Password:</label>
-          <input type="password" name="password" value={password} onChange={this.handleChange} required/>
+          <input type="password" name="password" value={password} onChange={ e => this.handleChange(e)} placeholder="******" required/>
           {this.state.isError.password.length > 0 && (
                         <span className="invalid-feedback">{this.state.isError.password}</span>
           )}  
           </div>
           <div>
           <label>Repeat Password:</label>
-          <input type="password" name="repeatPassword" value={repeatPassword} onChange={this.handleChange} required/>
+          <input type="password" name="repeatPassword" value={repeatPassword} onChange={ e => this.handleChange(e)} placeholder="******" required/>
           {this.state.isError.repeatPassword.length > 0 && (
                         <span className="invalid-feedback">{this.state.isError.repeatPassword}</span>
           )} 
           </div>
-          <input type="submit" value="Signup" onClick={this.errorMessage}/>
+          <div className="signup-button-div">
+          <input className="signup-button" type="submit" value="Signup" onClick={this.errorMessage}/>
+          </div>
+          <p>Already have account? <Link to={"/login"}> Login</Link></p>
+        
           <div>
             {this.state.message}
           </div>
         </form>
+
         
-
-
-        <p>Already have account?</p>
-        <Link to={"/login"}> Login</Link>
       </div>
     );
   }

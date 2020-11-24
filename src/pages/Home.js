@@ -3,17 +3,14 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
+    <div className="home">
     <div>
-      <div
-        id="carouselExampleCaptions"
-        className="carousel slide carousel-fade"
-        data-ride="carousel"
-      >
+      <div id="carouselExampleCaptions" className="carousel slide carousel-fade" data-ride="carousel">
         <ol className="carousel-indicators">
           <li
             data-target="#carouselExampleCaptions"
             data-slide-to="0"
-            class="active"
+            className="active"
           ></li>
           <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
           <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
@@ -87,10 +84,15 @@ function Home() {
           <span className="sr-only">Next</span>
         </a>
       </div>
-      <div>
-        <button><Link to="/signup" className=""> Sign Up </Link> </button>
-        <button><Link to="/login" className=""> Log In </Link> </button>
+      <div className="container">
+        <div className="boton">
+          <button className="button"> <span><Link to="/signup" className="link"> Sign Up </Link> </span></button>
+        </div>
+        <div className="boton">
+          <button className="button"> <span><Link to="/login" className="link"> Log In </Link> </span></button>
+        </div>
       </div>
+    </div>
     </div>
   );
 }

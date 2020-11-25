@@ -66,10 +66,8 @@ class EditProfile extends Component {
   handleFileUpload = async (e) => {
     const uploadData = new FormData();
     uploadData.append("imgPath", e.target.files[0]);
-    console.log(e.target.files[0], "eventt")
     try {
       const res = await service.handleUpload(uploadData);
-      console.log(res, "responsee")
       if(res.secure_url === "" || res.secure_url === undefined){
         return
       }

@@ -11,34 +11,23 @@ class AddVideo extends Component {
         url: "",
         intensity: "",
         muscle: "",
+        duration: 0,
         isError: {
           muscle: '',
           intensity: ''
         }
     }
   }
+  handleFormSubmit = event => {
+    event.preventDefault();
+    const userId = this.props.user._id
+    const { title, description, url, intensity, muscle, duration} = this.state;
+    this.props.addExercise ({ userId, title, description, url, intensity, muscle, duration })
+    this.props.history.push(`/profile/${userId}`);
+  }
 
-    handleFormSubmit = event => {
-        event.preventDefault();
-        const userId = this.props.user._id
-        const { title, description, url, intensity, muscle, isError } = this.state
-        this.props.addExercise ({ userId, title, description, url, intensity, muscle, isError })
-        .then(() => {
-          this.props.getData();
-          this.setState({ 
-            title: "",
-            description: "",
-            url: "",
-            intensity: "",
-            muscle: "",
-          })
-          this.props.history.push("/profile/:id");
-        })
-          .catch(error => console.log(error));
-        };
-
-      handleChange = event => {
-        const { name, value } = event.target;
+   handleChange = event => {
+      const { name, value } = event.target;
         let isError = { ...this.state.isError };
         switch (name) {
           case "intensity":
@@ -59,7 +48,7 @@ class AddVideo extends Component {
         this.setState({ message: "This exercise already exists. Try another one!"})
       }
     render() {
-        const { title, description, url, intensity, muscle } = this.state;
+        const { title, description, url, intensity, muscle, duration } = this.state;
         return (
             <div className="add-video-container">
                 <h1 className="add-video-title">Create a new exercise</h1>
@@ -79,6 +68,12 @@ class AddVideo extends Component {
                 <label>URL:</label>
                 <input type="text" name="url" value={url} onChange={ e => this.handleChange(e)} required/>
                 </div>
+
+                <div className="add-video-form-div">
+                <label>Duration:</label>
+                <input type="number" name="duration" value={duration} onChange={ e => this.handleChange(e)} required/>
+                </div>
+
                 <div>
                 <div className="add-video-selectors">
                 <label>Intensity:</label>

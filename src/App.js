@@ -19,6 +19,7 @@ import Faq from "./pages/Faq";
 import FaqP from "./pages/FaqP";
 
 import Footer from "./components/Footer";
+import ExerciseCreated from "./pages/ExerciseCreated";
 
 
 class App extends Component {
@@ -37,6 +38,7 @@ class App extends Component {
             <PrivateRoute exact path="/profile/:id" component={Profile} />
             <PrivateRoute exact path="/profile/:id/add-video" component={AddVideo} />
             <PrivateRoute exact path="/profile/:id/edit" component={EditProfile} />
+            <PrivateRoute exact path="/profile/:id/my-exercises" component={ExerciseCreated} />
             <PrivateRoute exact path="/videos" component={AllExercises} />
             <PrivateRoute exact path="/calendar" component={Calendar} />
             <PrivateRoute exact path="/videos/:id" component={ExerciseDetails} />

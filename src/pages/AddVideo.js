@@ -23,7 +23,7 @@ class AddVideo extends Component {
     const userId = this.props.user._id
     const { title, description, url, intensity, muscle, duration} = this.state;
     this.props.addExercise ({ userId, title, description, url, intensity, muscle, duration })
-    this.props.history.push(`/profile/${userId}`);
+    this.props.history.push(`/profile/${userId}/my-exercises`);
   }
 
    handleChange = event => {

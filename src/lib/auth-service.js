@@ -59,6 +59,12 @@ class Auth {
       .then(({ data }) => data);
   }
 
+  deleteVideo(_id) {
+    return this.auth
+    .delete(`/my-exercises/${_id}`, {})
+    .then(({ data }) => data)
+  }
+
 }
 
 const axiosRequestFunctions = new Auth(); 

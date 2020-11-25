@@ -71,6 +71,12 @@ class Auth {
     .then(({ data }) => data)
   }
 
+  deleteFavourite(_id) {
+    return this.auth
+    .delete(`/videos/favourites/${_id}`, {_id})
+    .then(({ data }) => data)
+  }
+
 }
 
 const axiosRequestFunctions = new Auth(); 

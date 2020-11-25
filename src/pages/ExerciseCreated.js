@@ -24,16 +24,27 @@ class ExerciseCreated extends Component {
         return (
             <div>
               <h1 className="exercise-list-title">Created list</h1>
-              <div className="exercise-favourite-container-tablet">
+              <div className="exercise-created-container-tablet">
                 { this.state.exerciseCreated ? this.state.exerciseCreated.map((created, index) => {
                     return (
-                      <div className="exercise-favourite-container" key={index}> 
-                      <ReactPlayer width='100%' height='100%' controls={true} url={created.url}/>
+                      <div className="exercise-created-container" key={index}> 
+                      <ReactPlayer width='100%' height='100%' light={true} controls={true} url={created.url}/>
                       <p>Workout: <Link className="link-no-style" to={`/videos/${created._id}`}>{created.title}</Link></p>
-                      <p>You will exercise your {created.muscle} || It is {created.intensity} intensity</p> 
-                      <p> Duration : {created.duration} </p>
-                      <p>Description: {created.description} </p> 
-                      <button onClick={() => this.deleteExercise(created._id)}><span className="icon"><i className="fa fa-trash"></i></span> </button>
+                      <div className="favo-videos-icons">
+                        <p>
+                        <img className="icon-video" src="/images/dumbbell-icon.svg" alt="dubbell"/> 
+                        {created.muscle} 
+                        </p><p>
+                        <img className="icon-video-smaller" src="/images/thermometer-icon.svg" alt="thermometer"/> 
+                        {created.intensity} 
+                        </p><p>
+                        <img className="icon-video" src="/images/clock-icon.svg" alt="clock"/>
+                        {created.duration}min
+                        </p>
+                        <button onClick={() => this.deleteExercise(created._id)}><span className="icon"><i className="fa fa-trash"></i></span></button>
+                        <p>Description: {created.description}</p>
+                        </div>
+                      
                       </div>
                       )}) : <p>Loading...</p>}  
               </div>

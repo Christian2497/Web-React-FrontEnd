@@ -6,7 +6,7 @@ class Footer extends Component {
                 <footer>
                     <div className="bottom">
                     <center className="center-footer">  
-                        <span className="credit">Created By <a href="https://www.linkedin.com/in/christian-hernandez-heras/">Christian Hernandez</a>  & <a href="https://www.linkedin.com/in/martacamachovargas/">Marta Camacho </a>  </span>
+                        <span className="credit">Created By <a className="link-no-style" href="https://www.linkedin.com/in/christian-hernandez-heras/">Christian Hernandez</a>  & <a className="link-no-style" href="https://www.linkedin.com/in/martacamachovargas/">Marta Camacho </a>  </span>
                         <span> 2020 All rights reserved</span>
                     </center>
                     </div>

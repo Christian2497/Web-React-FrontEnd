@@ -85,6 +85,7 @@ button {
   font-family: 'Raleway', sans-serif;
   font-size: 17px;
   text-align: right;
+  box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.445);
 }
 
 
@@ -132,7 +133,7 @@ button {
 .button {
 	display: inline-block;
 	border-radius: 10px;
-	background-color: blue;
+	background-color: black;
 	border: none;
 	color: #FFFFFF;
 	text-align: center;
@@ -489,6 +490,9 @@ width: 8.5rem;
 .exercise-list-container {
 	width: 100%;
 	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 .link-no-style {
@@ -500,6 +504,7 @@ color: darkgreen;
 .link-no-style:hover {
 	font-weight: bolder;
 	color: darkgreen;
+	text-decoration: none;
 }
 
 .all-videos-icons {
@@ -507,18 +512,28 @@ display: flex;
 flex-direction: row;
 flex-wrap: wrap;
 justify-content: space-around;
+align-items: center;
 }
 
 .search{
 	width: 25%;
 	border-radius: 20px;
 	height: 40px;
+	background-color: rgba(128, 128, 128, 0.205); 
+	padding: 0 15px;
+	box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.445);
 }
 
+.input-icons i { 
+	position: absolute; 
+	padding: 1rem;
+} 
+  
 .container-2{
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	
 }
 
 /* EXERCISE DETAILS */
@@ -598,9 +613,13 @@ justify-content: space-around;
 	width: 10%;
 }
 
-.calendar-container {
-	display: flex;
-	justify-content: center;
+.desktop-calendar-container {
+	padding: 3rem;
+}
+
+.calendar-week {
+	text-align: center;
+	background-color: rgba(155, 167, 166, 0.205);
 }
 
 .calendar-legs {
@@ -627,11 +646,41 @@ justify-content: space-around;
 	background-color: rgba(128, 128, 128, 0.11);
 }
 
+
+/* CREATED */
+
+.exercise-created-container{
+	width: 100%;
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.exercise-list-container {
+	width: 100%;
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.favo-videos-icons {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	}
+
+
 @media screen and (min-width: 700px){
-	.desktop-show {
+.desktop-show {
 	display: none;
 }
-  
+
+/* HOME */
+
 .details-player {
 	width: 100%;
 	height: 100%;
@@ -639,18 +688,22 @@ justify-content: space-around;
 
 .carousel-caption h5 {
 	font-size: 2.5rem;
-	margin-bottom: 2rem;
 	text-shadow: 2px 2px 28px black;
 }
 
 .carousel-caption  {
 	font-size: 1.8rem;
 	text-shadow: 2px 2px 28px black;
+	margin-bottom: 0rem;
 }
 
 .carousel-inner{
-	height: 60%;
+	height: 100%;
 	width: 100%;
+}
+
+.ole {
+	height: 37rem;
 }
 
 .container{
@@ -658,6 +711,7 @@ justify-content: space-around;
 	flex-direction: row;
 	justify-content: space-around;
 }
+  
 
 /* ADD NEW VIDEO */
 .add-video-container {
@@ -706,24 +760,51 @@ justify-content: space-around;
 .exercise-favourite-container-tablet {
 	padding: 1rem;
 	display: flex;
-	flex-wrap: wrap;
-	flex-direction: row;
+	flex-wrap: nowrap;
+	flex-direction: column;
 	justify-content: center;
 }
 
 .exercise-favourite-container{
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+	flex-direction: row;
+	align-items:  flex-start;
 	text-align: left;
-	width: 40%;
-	height: 40%;
+	width: 100%;
+	height: 100%;
 	padding: 1rem;
 }
 
-.exercise-favourite-container p,h3 {
-	width: 100%;
+.exercise-favourite-container-p {
+	padding: 0.5rem 0;
+}
+
+.exercise-favourite-container h3 {
+	padding: 0.5rem 0;
+}
+
+.video-fav {
+	width: 45%;
+	padding: 0 1rem;
+}
+
+/* CREATED */
+.exercise-created-container-tablet {
+	padding: 1rem;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.exercise-created-container{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: left;
+	width: 40%;
+	height: 100%;
+	padding: 1rem;
 }
 
 
@@ -748,7 +829,15 @@ justify-content: space-around;
  .carousel-caption  {
 	font-size: 3.5rem;
 	text-shadow: 2px 2px 28px black;
+	margin: 100px 0;
 }
+
+.carousel {
+	height: 50rem;
+}
+
+
+
 
   /*FAQ*/
   .faq-desktop-item {
@@ -835,20 +924,19 @@ justify-content: space-around;
 	width: 20px;
 }
 
-/* FAVOURITE */
 
-.exercise-favourite-container-tablet {
-	padding: 1rem;
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: row;
-	justify-content: center;
+/* FAVOURITES */
+
+.video-fav {
+	width: 100%;
+	padding: 0 1rem;
 }
 
-.exercise-favourite-container{
-	width: 30%;
-	height: 30%;
-	padding: 1rem;
+.favourite-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 0 10%;
 }
 
 /* CALENDAR */

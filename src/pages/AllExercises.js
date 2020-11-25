@@ -37,10 +37,12 @@ class AllExercises extends Component {
       let filter = this.state.videosToShow ?this.state.videosToShow.map(function(video){
         return(
           <div className="exercise-list-container">
+          <div>
           <ReactPlayer  width='100%' height='100%' light={true} controls={true} url={video.url} />
           <h3>
-          <Link to={`/videos/${video._id}`} className="">{video.title}</Link>
+          <Link to={`/videos/${video._id}`} className="link-no-style">{video.title}</Link>
           </h3>
+          </div>
           <div className="all-videos-icons">
           <p> <img className="icon-video" src="../images/dumbbell-icon.svg" alt="dumbbell"/> {video.muscle}</p>
           <p><img className="icon-video-smaller" src="../images/thermometer-icon.svg" alt="thermometer"/>{video.intensity} </p>
@@ -55,8 +57,8 @@ class AllExercises extends Component {
         <div>
           <h1 className="exercise-list-title">Exercise list</h1>
           <div className="box">
-          <div className="container-2">
-            <input type="search" className="search" name="search" placeholder="Search..." value={this.state.search} onChange={(e) => this.searchVideo(e)}/>
+          <div className="container-2 input-icons">
+            <input type="search input-field" className="search" name="search" placeholder=" → Find exercise..." value={this.state.search} onChange={(e) => this.searchVideo(e)}/>
           </div>
           </div>
           <div className="exercise-list-container-tablet">

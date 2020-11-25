@@ -72,14 +72,14 @@ class Signup extends Component {
           <label>Username:</label>
           <input type="text" name="username" value={username} onChange={this.handleChange} placeholder="ej: Alex" required/>
           {this.state.isError.username.length > 0 && (
-                        <span className="invalid-feedback">{this.state.isError.username}</span>
+           <span className="invalid-feedback">{this.state.isError.username}</span>
           )}
           </div>
           <div>
           <label>Email:</label>
           <input type="email" name="email" value={email} onChange={ e => this.handleChange(e)} placeholder="ej: test@test.com" required/>
           {this.state.isError.email.length > 0 && (
-                        <span className="invalid-feedback">{this.state.isError.email}</span>
+          <span className="invalid-feedback">{this.state.isError.email}</span>
           )}
           
           </div>
@@ -94,7 +94,7 @@ class Signup extends Component {
           <label>Password:</label>
           <input type="password" name="password" value={password} onChange={ e => this.handleChange(e)} placeholder="******" required/>
           {this.state.isError.password.length > 0 && (
-                        <span className="invalid-feedback">{this.state.isError.password}</span>
+          <span className="invalid-feedback">{this.state.isError.password}</span>
           )}  
           </div>
           <div>

@@ -16,7 +16,7 @@ function Home() {
           <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
         </ol>
         <div className="carousel-inner">
-          <div className="carousel-item active">
+          <div className="carousel-item active ole">
             <img
               src="/images/trainersPicture.jpg"
               className="d-block w-100"
@@ -30,7 +30,7 @@ function Home() {
               </p>
             </div>
           </div>
-          <div className="carousel-item ">
+          <div className="carousel-item ole">
             <img
               src="/images/destThird.jpg"
               className="d-block w-100"
@@ -44,7 +44,7 @@ function Home() {
             </div>
           </div>
 
-          <div className="carousel-item ">
+          <div className="carousel-item ole">
             <img
               src="/images/calendarSliderImage.jpg"
               className="d-block w-100"

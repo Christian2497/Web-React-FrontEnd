@@ -93,17 +93,42 @@ state = {
       },
 }
 
+   theMonth() {
+    var month = new Array();
+    month[0] = "January";
+    month[1] = "February";
+    month[2] = "March";
+    month[3] = "April";
+    month[4] = "May";
+    month[5] = "June";
+    month[6] = "July";
+    month[7] = "August";
+    month[8] = "September";
+    month[9] = "October";
+    month[10] = "November";
+    month[11] = "December";
+    var d = new Date();
+    var n = month[d.getMonth()];
+    return  n;
+  }
+
 
   render() {
     return (
+      <div>
+      <h1 className="exercise-list-title">Calendar {this.theMonth()}</h1>
       <div className="calendar-container">
+      
 
 {/* DESKTOP VERSION */}
 
 
-        <div className="desktop-show ">
+        <div className="desktop-show desktop-calendar-container">
           <table className="table table-bordered calendar-table">
             <thead>
+            <tr className="calendar-week">
+                <td colspan="7">Week 1</td>
+              </tr>
               <tr className="calendar-weekday">
                 <th scope="col">Monday</th>
                 <th scope="col">Tuesday</th>
@@ -126,7 +151,6 @@ state = {
               </tr>
               <tr>
                 <td>
-                  {" "}
                   <Link to={`/videos/${this.state.week1.monday.id}`} className="">
                   {this.state.week1.monday.title}
                   </Link>
@@ -137,7 +161,6 @@ state = {
                   </Link>
                 </td>
                 <td>
-                  {" "}
                   <Link to={`/videos/${this.state.week1.wednesday.id}`} className="">
                   {this.state.week1.wednesday.title}
                   </Link>
@@ -148,7 +171,6 @@ state = {
                   </Link>
                 </td>
                 <td>
-                  {" "}
                   <Link to={`/videos/${this.state.week1.friday.id}`} className="">
                   {this.state.week1.friday.title}
                   </Link>
@@ -161,6 +183,9 @@ state = {
 
           <table className="table table-bordered calendar-table">
             <thead>
+            <tr className="calendar-week">
+                <td colspan="7">Week 2</td>
+              </tr>
               <tr className="calendar-weekday">
                 <th scope="col">Monday</th>
                 <th scope="col">Tuesday</th>
@@ -183,7 +208,6 @@ state = {
               </tr>
               <tr>
                 <td>
-                  {" "}
                   <Link to={`/videos/${this.state.week2.monday.id}`} className="">
                   {this.state.week2.monday.title}
                   </Link>
@@ -194,7 +218,6 @@ state = {
                   </Link>
                 </td>
                 <td>
-                  {" "}
                   <Link to={`/videos/${this.state.week2.wednesday.id}`} className="">
                   {this.state.week2.wednesday.title}
                   </Link>
@@ -205,7 +228,6 @@ state = {
                   </Link>
                 </td>
                 <td>
-                  {" "}
                   <Link to={`/videos/${this.state.week2.friday.id}`} className="">
                   {this.state.week2.friday.title}
                   </Link>
@@ -218,6 +240,9 @@ state = {
 
           <table className="table table-bordered calendar-table">
             <thead>
+            <tr className="calendar-week">
+                <td colspan="7">Week 3</td>
+              </tr>
               <tr className="calendar-weekday">
                 <th scope="col">Monday</th>
                 <th scope="col">Tuesday</th>
@@ -240,7 +265,6 @@ state = {
               </tr>
               <tr>
                 <td>
-                  {" "}
                   <Link to={`/videos/${this.state.week3.monday.id}`} className="">
                   {this.state.week3.monday.title}
                   </Link>
@@ -251,7 +275,6 @@ state = {
                   </Link>
                 </td>
                 <td>
-                  {" "}
                   <Link to={`/videos/${this.state.week3.wednesday.id}`} className="">
                   {this.state.week3.wednesday.title}
                   </Link>
@@ -262,7 +285,6 @@ state = {
                   </Link>
                 </td>
                 <td>
-                  {" "}
                   <Link to={`/videos/${this.state.week3.friday.id}`} className="">
                   {this.state.week3.friday.title}
                   </Link>
@@ -275,6 +297,9 @@ state = {
 
           <table className="table table-bordered calendar-table">
             <thead>
+            <tr className="calendar-week">
+                <td colspan="7">Week 4</td>
+              </tr>
               <tr className="calendar-weekday">
                 <th scope="col">Monday</th>
                 <th scope="col">Tuesday</th>
@@ -342,7 +367,7 @@ state = {
             <div className="card-header" id="headingOne">
               <h2 className="mb-0">
                 <button
-                  className="btn btn-link btn-block text-left collapsed faq-title-text"
+                  className="btn btn-link btn-block text-center collapsed faq-title-text"
                   type="button"
                   data-toggle="collapse"
                   data-target="#collapseOne"
@@ -430,7 +455,7 @@ state = {
             <div className="card-header" id="headingTwo">
               <h2 className="mb-0">
                 <button
-                  className="btn btn-link btn-block text-left collapsed faq-title-text"
+                  className="btn btn-link btn-block text-center collapsed faq-title-text"
                   type="button"
                   data-toggle="collapse"
                   data-target="#collapseTwo"
@@ -517,7 +542,7 @@ state = {
             <div className="card-header" id="headingThree">
               <h2 className="mb-0">
                 <button
-                  className="btn btn-link btn-block text-left collapsed faq-title-text"
+                  className="btn btn-link btn-block text-center collapsed faq-title-text"
                   type="button"
                   data-toggle="collapse"
                   data-target="#collapseThree"
@@ -604,7 +629,7 @@ state = {
             <div className="card-header" id="headingFour">
               <h2 className="mb-0">
                 <button
-                  className="btn btn-link btn-block text-left collapsed faq-title-text"
+                  className="btn btn-link btn-block text-center collapsed faq-title-text"
                   type="button"
                   data-toggle="collapse"
                   data-target="#collapseFour"
@@ -688,6 +713,7 @@ state = {
             </div>
           </div>
         </div>
+      </div>
       </div>
     );
   }

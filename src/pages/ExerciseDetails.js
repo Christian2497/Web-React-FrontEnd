@@ -8,14 +8,16 @@ class ExerciseDetails extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props.match.params.id, 'las props')
         const exerciseId = this.props.match.params.id
         return (
             this.props.exerciseInfo(exerciseId)
             .then(response => this.setState({ exercise: response }))
             .catch(error => console.log(error))
         )
-        
+    }
+
+    isFavourite() {
+
     }
 
     render() {

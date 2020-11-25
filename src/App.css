@@ -595,6 +595,51 @@ justify-content: space-around;
 	color: black;
 }
 
+/* CALENDAR */
+
+.calendar-weekday {
+	background-color: rgba(69, 235, 69, 0.226);
+}
+
+.calendar-table {
+	margin-top: 1rem;
+	width: 100%;
+}
+
+.calendar-table td {
+	margin-top: 1rem;
+	width: 10%;
+}
+
+.calendar-container {
+	display: flex;
+	justify-content: center;
+}
+
+.calendar-legs {
+	background-color: rgba(54, 176, 247, 0.473);
+}
+
+.calendar-arms {
+	background-color: rgba(241, 255, 47, 0.185);
+}
+
+.calendar-abs {
+	background-color: rgba(170, 5, 170, 0.199);
+}
+
+.calendar-cardio {
+	background-color: rgba(255, 192, 203, 0.219);
+}
+
+.calendar-back {
+	background-color: rgba(0, 128, 0, 0.226);
+}
+
+.calendar-weekend {
+	background-color: rgba(128, 128, 128, 0.11);
+}
+
 @media screen and (min-width: 700px){
 	.desktop-show {
 	display: none;
@@ -819,7 +864,50 @@ justify-content: space-around;
 	padding: 1rem;
 }
 
+/* CALENDAR */
 
+.calendar-weekday {
+	background-color: rgba(69, 235, 69, 0.226);
+}
+
+.calendar-table {
+	margin-top: 1rem;
+	width: 100%;
+}
+
+.calendar-table td {
+	margin-top: 1rem;
+	width: 10%;
+}
+
+.calendar-container {
+	display: flex;
+	justify-content: center;
+}
+
+.calendar-legs {
+	background-color: rgba(54, 176, 247, 0.473);
+}
+
+.calendar-arms {
+	background-color: rgba(241, 255, 47, 0.185);
+}
+
+.calendar-abs {
+	background-color: rgba(170, 5, 170, 0.199);
+}
+
+.calendar-cardio {
+	background-color: rgba(255, 192, 203, 0.219);
+}
+
+.calendar-back {
+	background-color: rgba(0, 128, 0, 0.226);
+}
+
+.calendar-weekend {
+	background-color: rgba(128, 128, 128, 0.11);
+}
 
 
 /* TEST DE FORMULARIOS */

@@ -29,9 +29,9 @@ class Auth {
     return this.auth.get("/me").then(({ data }) => data);
   }
 
-  addExercise({ userId, title, description, url, intensity, muscle }) {
+  addExercise({ userId, title, description, url, intensity, muscle, duration }) {
     return this.auth
-      .post(`/profile/${userId}/add-video`, { title, description, url, intensity, muscle  })
+      .post(`/profile/${userId}/add-video`, { title, description, url, intensity, muscle, duration  })
       .then(({ data }) => data);
   }
   
@@ -57,6 +57,12 @@ class Auth {
     return this.auth
       .get("/videos", { })
       .then(({ data }) => data);
+  }
+
+  deleteVideo(_id) {
+    return this.auth
+    .delete(`/my-exercises/${_id}`, {})
+    .then(({ data }) => data)
   }
 
 }

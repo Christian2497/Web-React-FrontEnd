@@ -38,9 +38,11 @@ class AllExercises extends Component {
         return(
           <div className="exercise-list-container">
           <ReactPlayer  width='100%' height='100%' light={true} controls={true} url={video.url} />
-          <h3>{video.title}</h3>
+          <h3>
+          <Link to={`/videos/${video._id}`} className="">{video.title}</Link>
+          </h3>
           <div className="all-videos-icons">
-          <p> <img className="icon-video" src="../images/dumbbell-icon.svg" alt="dubbell"/> {video.muscle}</p>
+          <p> <img className="icon-video" src="../images/dumbbell-icon.svg" alt="dumbbell"/> {video.muscle}</p>
           <p><img className="icon-video-smaller" src="../images/thermometer-icon.svg" alt="thermometer"/>{video.intensity} </p>
           <p> <img className="icon-video" src="../images/clock-icon.svg" alt="clock"/> {video.duration}min </p>
           </div>

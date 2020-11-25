@@ -65,6 +65,12 @@ class Auth {
     .then(({ data }) => data)
   }
 
+  addFavourite(_id) {
+    return this.auth
+    .post(`/videos/favourites/${_id}`, {_id})
+    .then(({ data }) => data)
+  }
+
 }
 
 const axiosRequestFunctions = new Auth(); 

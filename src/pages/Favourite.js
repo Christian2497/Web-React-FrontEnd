@@ -23,6 +23,7 @@ class FavouriteExercise extends Component {
                     return (
                       <div className="exercise-favourite-container" key={index}>
                       <ReactPlayer width='100%'height='100%' controls={true} url={favourite.url}/>
+                      <button onClick={() => this.delFavExercise(favourite._id)}><span className="icon"><i className="fa fa-trash"></i></span> </button>
                       <p>Workout: <Link className="link-no-style" to={`/videos/${favourite._id}`}>{favourite.title}</Link></p>
                       <p>You will exercise your {favourite.muscle} || It is {favourite.intensity} intensity</p> 
                       <p>Description: {favourite.description} </p> 

@@ -19,7 +19,8 @@ const withAuth = (WrappedComponent) => {
             allVideos,
             editProfile,
             exerciseInfo,
-            deleteVideo
+            deleteVideo,
+            addFavourite
           }) => {
             return (
               <WrappedComponent
@@ -34,6 +35,7 @@ const withAuth = (WrappedComponent) => {
                 allVideos={allVideos}
                 editProfile={editProfile}
                 deleteVideo={deleteVideo}
+                addFavourite={addFavourite}
                 {...this.props} 
               />
             );
@@ -139,6 +141,13 @@ class AuthProvider extends Component {
     .catch((error) => console.log(error))
   }
 
+  addFavourite = (id) => {
+    auth
+    .addFavourite(id)
+    .then((exercise) => exercise)
+    .catch((error) => console.log(error))
+  }
+
   render() {
     const { isLoading, isLoggedin, user } = this.state;
     const {
@@ -151,6 +160,7 @@ class AuthProvider extends Component {
       exerciseInfo,
       editProfile,
       deleteVideo,
+      addFavourite,
     } = this;
 
     return isLoading ? (
@@ -168,7 +178,8 @@ class AuthProvider extends Component {
           userInfo,
           exerciseInfo,
           editProfile,
-          deleteVideo
+          deleteVideo,
+          addFavourite
         }}
       >
         {this.props.children}

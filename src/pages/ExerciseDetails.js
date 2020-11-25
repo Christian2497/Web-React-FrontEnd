@@ -9,6 +9,8 @@ class ExerciseDetails extends Component {
 
     componentDidMount() {
         const exerciseId = this.props.match.params.id
+        const userId = this.props.user._id
+        this.props.userInfo(userId)
         return (
             this.props.exerciseInfo(exerciseId)
             .then(response => this.setState({ exercise: response }))
@@ -16,9 +18,14 @@ class ExerciseDetails extends Component {
         )
     }
 
-    isFavourite() {
+  
+      favExercise = (id) => {
+        const userId = this.props.user._id
+        this.props.addFavourite(id);
+        this.props.userInfo(userId);
+        this.props.history.push(`/videos/favourites/${userId}`)
+      }
 
-    }
 
     render() {
         return (
@@ -28,9 +35,8 @@ class ExerciseDetails extends Component {
                 <div className="exercise-details-container" key={this.state.exercise._id}>
                 <div>
                 <h3>
-                <a  href={`/videos/favourites/${this.state.exercise._id}`}>
-                <img className="icon-like" src="../images/star-icon-empty.svg" alt="star"/> 
-                </a>{this.state.exercise.title}
+                <button onClick={() => this.favExercise(this.state.exercise._id)}><span className="icon"><i className="fa fa-star"></i></span> </button>
+                {this.state.exercise.title}
                 </h3>
                 <ReactPlayer className="details-player"  controls={true} url={this.state.exercise.url}/>
                 <p><img className="icon-video" src="../images/clock-icon.svg" alt="clock"/> {this.state.exercise.duration}min video </p>
@@ -38,7 +44,6 @@ class ExerciseDetails extends Component {
                 <p><img className="icon-video-smaller" src="../images/thermometer-icon.svg" alt="thermometer"/> It is {this.state.exercise.intensity} intensity</p> 
                 <p>Description: {this.state.exercise.description}</p>
                 </div>
-                
                 </div>
           </div>
         </div>

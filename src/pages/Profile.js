@@ -39,9 +39,11 @@ class Profile extends Component {
                <p className="profile-text">Current weight: {this.state.user.weight}kg</p>
                <p className="profile-text">Goal: {this.state.user.goal}kg</p>
                <p className="profile-text">You are {this.state.user.weight - this.state.user.goal}kg fron your objective, let's do this!</p>
-               <button><Link to={`/videos/favourites/${this.state.user._id}`} className="">Favourite videos</Link></button>
-               <button><Link to={`/profile/${this.state.user._id}/add-video`} >Add new video</Link></button>
-               <button><Link to={`/profile/${this.state.user._id}/my-exercises`} > My exercises </Link></button>
+               <div className="botones-perfil">
+                <Link to={`/videos/favourites/${this.state.user._id}`} className=""><button><i className="fa fa-heart"></i></button></Link>
+                <Link to={`/profile/${this.state.user._id}/add-video`}><button><i className="fa fa-plus"></i></button></Link>
+                <Link to={`/profile/${this.state.user._id}/my-exercises`}><button><i class="fa fa-calendar"></i></button></Link>
+               </div>
             </div>
             </div>
         </div>

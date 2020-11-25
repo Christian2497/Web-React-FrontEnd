@@ -99,7 +99,6 @@ class EditProfile extends Component {
                 <div>
                 <label> Photo:</label>
                 <input type="file" name="imgPath" onChange={ e => this.handleFileUpload(e)}/>
-                {/* <input type="hidden" name="previousImg" /> */}
                 </div>
 
                 <input className="edit-profile-button" type="submit" value="Submit"/>

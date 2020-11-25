@@ -18,6 +18,7 @@ class AddVideo extends Component {
         }
     }
   }
+  
   handleFormSubmit = event => {
     event.preventDefault();
     const userId = this.props.user._id

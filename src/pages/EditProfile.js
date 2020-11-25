@@ -66,8 +66,10 @@ class EditProfile extends Component {
   handleFileUpload = async (e) => {
     const uploadData = new FormData();
     uploadData.append("imgPath", e.target.files[0]);
+    console.log(e.target.files[0], "eventt")
     try {
       const res = await service.handleUpload(uploadData);
+      console.log(res, "responsee")
       if(res.secure_url === "" || res.secure_url === undefined){
         return
       }
@@ -99,7 +101,6 @@ class EditProfile extends Component {
                 <div>
                 <label> Photo:</label>
                 <input type="file" name="imgPath" onChange={ e => this.handleFileUpload(e)}/>
-                {/* <input type="hidden" name="previousImg" /> */}
                 </div>
 
                 <input className="edit-profile-button" type="submit" value="Submit"/>

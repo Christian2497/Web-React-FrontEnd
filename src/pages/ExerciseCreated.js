@@ -33,7 +33,7 @@ class ExerciseCreated extends Component {
                       <p>You will exercise your {created.muscle} || It is {created.intensity} intensity</p> 
                       <p> Duration : {created.duration} </p>
                       <p>Description: {created.description} </p> 
-                      <button onClick={() => this.deleteExercise(created._id)}> Delete </button>
+                      <button onClick={() => this.deleteExercise(created._id)}><span className="icon"><i className="fa fa-trash"></i></span> </button>
                       </div>
                       )}) : <p>Loading...</p>}  
               </div>

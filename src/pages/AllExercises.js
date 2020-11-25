@@ -52,9 +52,10 @@ class AllExercises extends Component {
       return (
         <div>
           <h1 className="exercise-list-title">Exercise list</h1>
-          <div>
-            <span className="icon"><i className="fa fa-search"></i></span>
-            <input type="search" className="search" name="search" placeholder="Search" value={this.state.search} onChange={(e) => this.searchVideo(e)}/>
+          <div className="box">
+          <div className="container-2">
+            <input type="search" className="search" name="search" placeholder="Search..." value={this.state.search} onChange={(e) => this.searchVideo(e)}/>
+          </div>
           </div>
           <div className="exercise-list-container-tablet">
           {filter ? filter: (this.state.listOfVideos.map( exercise => {

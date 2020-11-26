@@ -79,7 +79,7 @@ class EditProfile extends Component {
 
     render() {
         return (
-            <div >
+            <div className="edit-profile">
               <h1 className="edit-profile-title">Edit your profile </h1>
 
                 <form className="edit-profile-form" onSubmit={this.handleFormSubmit} encType="multipart/form-data">
@@ -89,20 +89,22 @@ class EditProfile extends Component {
                 <input type="text" name="username" value={this.state.username} onChange={ e => this.handleChangeUsername(e)} />
                 </div>
 
-                <div id="edit-weight">
+                <div className="edit-weight">
                     <label>Weight:</label>
                     <input type="number" name="weight" value={this.state.weight} onChange={ e => this.handleChangeWeight(e)} />
 
                     <label>Goal:</label>
                     <input type="number" name="goal" value={this.state.goal} onChange={ e => this.handleChangeGoal(e)} />
                 </div>
-                <div>
-                <label> Photo:</label>
+                <div className="input-imgPath">
+                <label  for="file-upload" className="custom-file-upload"> 
+                  <i className="fa fa-cloud-upload"></i> Upload your photo
+                </label>
                 <input type="file" name="imgPath" onChange={ e => this.handleFileUpload(e)}/>
                 </div>
-
-                <input className="edit-profile-button" type="submit" value="Submit"/>
-
+                <div className="edit-profile-button-div">
+                  <input className="edit-profile-button" type="submit" value="Submit"/>
+                </div>
                 </form>  
             </div>
         )

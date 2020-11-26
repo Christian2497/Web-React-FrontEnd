@@ -71,7 +71,7 @@ class AddVideo extends Component {
                 <input type="text" name="url" value={url} onChange={ e => this.handleChange(e)} required/>
                 </div>
 
-                <div className="add-video-form-div">
+                <div className="add-video-form-duration">
                 <label>Duration:</label>
                 <input type="number" name="duration" value={duration} onChange={ e => this.handleChange(e)} required/>
                 </div>

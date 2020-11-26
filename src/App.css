@@ -575,7 +575,6 @@ width: 8.5rem;
 .link-no-style {
 text-decoration: none;
 color: darkgreen;
-
 }
 
 .link-no-style:hover {
@@ -691,7 +690,7 @@ align-items: center;
 }
 
 .desktop-calendar-container {
-	padding: 3rem;
+	padding: 0 3rem;
 }
 
 .calendar-week {
@@ -722,6 +721,19 @@ align-items: center;
 .calendar-weekend {
 	background-color: rgba(128, 128, 128, 0.11);
 }
+
+.calendar-link-no-style {
+	text-decoration: none;
+	color: darkgreen;
+}
+	
+.calendar-link-no-style:hover {
+	font-weight: bolder;
+	color: darkgreen;
+	text-decoration: none;
+}
+
+
 @media screen and (max-width: 700px){
 	.search{
 		width: 50%;

@@ -33,12 +33,13 @@ class ExerciseDetails extends Component {
             <h1 className="exercise-details-title">Exercise details</h1>
               <div className="exercise-details-container-tablet">
                     <div className="exercise-details-container" key={this.state.exercise._id}>
-                      <div>
+                      <div className="exercise-details-align">
                       <h3>
                       <button onClick={() => this.favExercise(this.state.exercise._id)}><span className="icon"><i className="fa fa-star"></i></span> </button>
                       {this.state.exercise.title}
                       </h3>
                       <ReactPlayer className="details-player"  controls={true} url={this.state.exercise.url}/>
+                      
                       <p><img className="icon-video-smaller" src="../images/thermometer-icon.svg" alt="thermometer"/> It is {this.state.exercise.intensity} intensity</p> 
                       <p><img className="icon-video" src="../images/clock-icon.svg" alt="clock"/> {this.state.exercise.duration}min video </p>
                       <p><img className="icon-video" src="../images/dumbbell-icon.svg" alt="dubbell"/> You will exercise your {this.state.exercise.muscle}</p> 

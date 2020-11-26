@@ -32,7 +32,7 @@ function Home() {
           </div>
           <div className="carousel-item ole">
             <img
-              src="/images/deskImage.jpg"
+              src="/images/palm-hand.jpg"
               className="d-block w-100"
               alt="laptop"
             />

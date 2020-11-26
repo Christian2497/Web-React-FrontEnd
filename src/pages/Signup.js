@@ -63,14 +63,14 @@ class Signup extends Component {
         <h1 className="signup-title">Sign Up</h1>
 
         <form className="signup-form" onSubmit={this.handleFormSubmit}>
-          <div>
+          <div className="signup-field">
           <label>Username:</label>
           <input type="text" name="username" value={username} onChange={this.handleChange} placeholder="ej: Alex" required/>
           {this.state.isError.username.length > 0 && (
            <span className="invalid-feedback">{this.state.isError.username}</span>
           )}
           </div>
-          <div>
+          <div className="signup-field">
           <label>Email:</label>
           <input type="email" name="email" value={email} onChange={ e => this.handleChange(e)} placeholder="ej: test@test.com" required/>
           {this.state.isError.email.length > 0 && (
@@ -85,14 +85,14 @@ class Signup extends Component {
           <label className="weight2">Goal:</label>
           <input type="number" name="goal" value={goal} onChange={ e => this.handleChange(e)} placeholder="ej: 40" />
           </div>
-          <div>
+          <div className="signup-field">
           <label>Password:</label>
           <input type="password" name="password" value={password} onChange={ e => this.handleChange(e)} placeholder="******" required/>
           {this.state.isError.password.length > 0 && (
           <span className="invalid-feedback">{this.state.isError.password}</span>
           )}  
           </div>
-          <div>
+          <div className="signup-field">
           <label>Repeat Password:</label>
           <input type="password" name="repeatPassword" value={repeatPassword} onChange={ e => this.handleChange(e)} placeholder="******" required/>
           {this.state.isError.repeatPassword.length > 0 && (

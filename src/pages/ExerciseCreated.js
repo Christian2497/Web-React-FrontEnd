@@ -30,20 +30,22 @@ class ExerciseCreated extends Component {
                     return (
                       <div className="exercise-created-container" key={index}> 
                       <ReactPlayer width='100%' height='100%' light={true} controls={true} url={created.url}/>
-                      <p>Workout: <Link className="link-no-style" to={`/videos/${created._id}`}>{created.title}</Link></p>
-                      <div className="favo-videos-icons">
+                      <p className="exercise-created-description">Workout: <Link className="link-no-style" to={`/videos/${created._id}`}>{created.title}</Link></p>
+                      <div className="created-videos-icons">
                         <p>
                         <img className="icon-video" src="/images/dumbbell-icon.svg" alt="dubbell"/> 
                         {created.muscle} 
-                        </p><p>
+                        </p>
+                        <p >
                         <img className="icon-video-smaller" src="/images/thermometer-icon.svg" alt="thermometer"/> 
                         {created.intensity} 
-                        </p><p>
+                        </p>
+                        <p>
                         <img className="icon-video" src="/images/clock-icon.svg" alt="clock"/>
                         {created.duration}min
                         </p>
                         <button onClick={() => this.deleteExercise(created._id)}><span className="icon"><i className="fa fa-trash"></i></span></button>
-                        <p>Description: {created.description}</p>
+                        <p className="exercise-created-description">Description: {created.description}</p>
                         </div>
                       
                       </div>

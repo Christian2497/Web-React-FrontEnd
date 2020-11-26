@@ -1,8 +1,6 @@
 # M3 - README
 
- 
 
-# Quick Compo
 
 ## Description
 
@@ -88,9 +86,9 @@ Exercise model
 
 | HTTP Method | URL                | Request Body                                       | Success status | Error Status | Description                                                  |
 | ----------- | ------------------ | -------------------------------------------------- | -------------- | ------------ | ------------------------------------------------------------ |
-| POST        | `/signup`          | {name, email, password}                            | 201            | 404          | Checks if fields not empty (422) and user not exists (409), then create user with encrypted password, and store user in session |
-| POST        | `/login`           | {username, password}                               | 200            | 401          | Checks if fields not empty (422), if user exists (404), and if password matches (404), then stores user in session |
-| POST        | `/logout`          | (empty)                                            | 204            | 400          | Logs out the user                                            |
+| POST        | /signup          | {name, email, password}                            | 201            | 404          | Checks if fields not empty (422) and user not exists (409), then create user with encrypted password, and store user in session |
+| POST        | /login           | {username, password}                               | 200            | 401          | Checks if fields not empty (422), if user exists (404), and if password matches (404), then stores user in session |
+| POST        | /logout          | (empty)                                            | 204            | 400          | Logs out the user                                            |
 | GET         | /                  |                                                    |                |              | Home Page                                                    |
 | GET         | /profile           |                                                    |                |              | See user profile                                             |
 | GET         | /search            |                                                    |                | 400          | Filters all videos on the database                           |
@@ -114,21 +112,17 @@ Exercise model
 
 ### Trello
 
-[Link to your trello board](https://trello.com/b/sAh8PwX2/proyecto-fit) or picture of your physical board
+[Link to trello board](https://trello.com/b/sAh8PwX2/proyecto-fit) or picture of your physical board
 
 ### Git
-
-The url to your repository and to your deployed project
 
 [Client repository Link](https://github.com/Christian2497/fit-project-client)
 
 [Server repository Link](https://github.com/Christian2497/fit-project-server)
 
-[Deployed App Link](http://heroku.com)
+[Deployed App Link](https://fitline.herokuapp.com)
 
 ### Slides
-
-The url to your presentation slides
 
 [Slides Link](https://docs.google.com/presentation/d/1WLpymaa1QK3PJTuNyf0hGJAPzENmW-8iZpt2tMTmszo/edit#slide=id.p)
 

@@ -43,9 +43,9 @@ class Profile extends Component {
                }
                
                <div className="botones-perfil">
-                <Link to={`/videos/favourites/${this.state.user._id}`} className=""><button><i className="fa fa-heart"> Liked</i></button></Link>
-                <Link to={`/profile/${this.state.user._id}/add-video`}><button><i className="fa fa-plus"> Add</i></button></Link>
-                <Link to={`/profile/${this.state.user._id}/my-exercises`}><button><i className="fa fa-calendar"> Mine</i></button></Link>
+                <Link to={`/videos/favourites/${this.state.user._id}`} ><button><i className="fa fa-heart"> <p className="button-font-profile">Liked</p></i></button></Link>
+                <Link to={`/profile/${this.state.user._id}/add-video`}><button><i className="fa fa-plus"> <p className="button-font-profile">Add</p></i></button></Link>
+                <Link to={`/profile/${this.state.user._id}/my-exercises`}><button><i className="fa fa-calendar"> <p className="button-font-profile">Mine</p></i></button></Link>
                </div>
             </div>
             </div>

@@ -21,8 +21,8 @@ class Calendar extends Component {
         title: "Low impact, beginner, fat burning, home cardio workout.",
       },
       friday: {
-        id: "5fbf79d169d249001748c47f",
-        title: "Get a sexy clavicle  [10 minute exercises) ~ Emi",
+        id: "5fbfb1c9a07daa001788587b",
+        title: "10 min exercise & stretch for shoulders, neck & the collarbone area ~ Emi",
       },
     },
     week2: {
@@ -43,7 +43,7 @@ class Calendar extends Component {
         title: "Total Body Toning Low Impact Cardio Workout",
       },
       friday: {
-        id: "5fbf792f69d249001748c47e",
+        id: "5fbfb13aa07daa001788587a",
         title:
           "20 Min Shoulder Stretching & Strengthening for Pain Relief - Shoulder Pain Exercises Stretches",
       },
@@ -66,7 +66,7 @@ class Calendar extends Component {
         title: "30-Minute HIIT Cardio Workout",
       },
       friday: {
-        id: "5fbf790969d249001748c47d",
+        id: "5fbfb11aa07daa0017885879",
         title: "GET WIDE Shoulders in 10 minutes (HOME WORKOUT. NO EQUIPMENT)",
       },
     },
@@ -90,7 +90,7 @@ class Calendar extends Component {
         title: "Killer HIIT CARDIO Workout",
       },
       friday: {
-        id: "5fbf789fb430ba2751b76bbf",
+        id: "5fbfb0f9a07daa0017885878",
         title: "At home shoulder workout  | Best shoulder exercises",
       },
     },

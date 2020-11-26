@@ -127,7 +127,7 @@ class Calendar extends Component {
             <table className="table table-bordered calendar-table">
               <thead>
                 <tr className="calendar-week">
-                  <td colspan="7">Week 1</td>
+                  <td colSpan="7">Week 1</td>
                 </tr>
                 <tr className="calendar-weekday">
                   <th scope="col">Monday</th>
@@ -199,7 +199,7 @@ class Calendar extends Component {
             <table className="table table-bordered calendar-table">
               <thead>
                 <tr className="calendar-week">
-                  <td colspan="7">Week 2</td>
+                  <td colSpan="7">Week 2</td>
                 </tr>
                 <tr className="calendar-weekday">
                   <th scope="col">Monday</th>
@@ -271,7 +271,7 @@ class Calendar extends Component {
             <table className="table table-bordered calendar-table">
               <thead>
                 <tr className="calendar-week">
-                  <td colspan="7">Week 3</td>
+                  <td colSpan="7">Week 3</td>
                 </tr>
                 <tr className="calendar-weekday">
                   <th scope="col">Monday</th>
@@ -343,7 +343,7 @@ class Calendar extends Component {
             <table className="table table-bordered calendar-table">
               <thead>
                 <tr className="calendar-week">
-                  <td colspan="7">Week 4</td>
+                  <td colSpan="7">Week 4</td>
                 </tr>
                 <tr className="calendar-weekday">
                   <th scope="col">Monday</th>

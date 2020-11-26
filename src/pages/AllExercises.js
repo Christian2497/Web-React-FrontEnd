@@ -36,7 +36,7 @@ class AllExercises extends Component {
     render() {
       let filter = this.state.videosToShow ?this.state.videosToShow.map(function(video){
         return(
-          <div className="exercise-list-container">
+          <div className="exercise-list-container" key={video._id}>
           <div>
           <ReactPlayer  width='100%' height='100%' light={true} controls={true} url={video.url} />
           <h3>

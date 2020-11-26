@@ -79,10 +79,10 @@ class Signup extends Component {
           
           </div>
           <div className="weight-goal" id="weight">
-          <label>Weight:</label>
+          <label className="weight2">Weight:</label>
           <input type="number" name="weight" value={weight} onChange={ e => this.handleChange(e)} placeholder="ej: 50" />
 
-          <label>Goal:</label>
+          <label className="weight2">Goal:</label>
           <input type="number" name="goal" value={goal} onChange={ e => this.handleChange(e)} placeholder="ej: 40" />
           </div>
           <div>

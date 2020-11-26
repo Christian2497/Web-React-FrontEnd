@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { withAuth } from '../lib/AuthProvider';
 
-
 class AddVideo extends Component {
   constructor(props){
     super(props); 
@@ -12,10 +11,6 @@ class AddVideo extends Component {
         intensity: "",
         muscle: "",
         duration: 0,
-        isError: {
-          muscle: '',
-          intensity: ''
-        }
     }
   }
   
@@ -30,25 +25,9 @@ class AddVideo extends Component {
 
    handleChange = event => {
       const { name, value } = event.target;
-        let isError = { ...this.state.isError };
-        switch (name) {
-          case "intensity":
-              isError.intensity =
-                  value.length === 0  ? "Choose one " : "";
-              break;
-          case "muscle":
-              isError.muscle = 
-              value.length === 0  ? "Choose one" : "";
-          break;
-          default:
-          break;
-        }
-        this.setState({isError, [name]: value });
+      this.setState({ [name]: value });
       };
     
-      errorMessage = () => {
-        this.setState({ message: "This exercise already exists. Try another one!"})
-      }
     render() {
         const { title, description, url, intensity, muscle, duration } = this.state;
         return (
@@ -84,8 +63,6 @@ class AddVideo extends Component {
                   <option value="low">Low</option>
                   <option value="medium">Not so low</option>
                 </select>
-                {this.state.isError.intensity.length > 0 && (
-                <span className="invalid-feedback">{this.state.isError.intensity}</span>)}
                 </div>
                 
                 <div className="add-video-selectors">
@@ -99,9 +76,6 @@ class AddVideo extends Component {
                   <option value="legs">Legs</option>
                   <option value="shoulders">Shoulders</option>
                 </select>
-                {this.state.isError.muscle.length > 0 && (
-                <span className="invalid-feedback">{this.state.isError.muscle}</span>)}
-                
                 </div>
                 </div>
                 <div className="add-video-button-div">

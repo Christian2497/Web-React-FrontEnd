@@ -17,7 +17,6 @@ import FavouriteExercise from "./pages/Favourite";
 import Calendar from "./pages/Calendar";
 import Faq from "./pages/Faq";
 import FaqP from "./pages/FaqP";
-
 import Footer from "./components/Footer";
 import ExerciseCreated from "./pages/ExerciseCreated";
 

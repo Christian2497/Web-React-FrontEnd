@@ -28,8 +28,6 @@ class EditProfile extends Component {
     }
 
     componentWillUnmount() {
-    
-      // fix Warning: Can't perform a React state update on an unmounted component
       this.setState = (state, callback) => {
         return;
       };
@@ -81,14 +79,11 @@ class EditProfile extends Component {
         return (
             <div className="edit-profile">
               <h1 className="edit-profile-title">Edit your profile </h1>
-
                 <form className="edit-profile-form" onSubmit={this.handleFormSubmit} encType="multipart/form-data">
-
                 <div>
                 <label>Username:</label>  
                 <input type="text" name="username" value={this.state.username} onChange={ e => this.handleChangeUsername(e)} />
                 </div>
-
                 <div className="edit-weight">
                     <label className="weight">Weight:</label>
                     <input type="number" name="weight" value={this.state.weight} onChange={ e => this.handleChangeWeight(e)} />

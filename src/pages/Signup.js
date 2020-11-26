@@ -96,7 +96,7 @@ class Signup extends Component {
           <label>Repeat Password:</label>
           <input type="password" name="repeatPassword" value={repeatPassword} onChange={ e => this.handleChange(e)} placeholder="******" required/>
           {this.state.isError.repeatPassword.length > 0 && (
-                        <span className="invalid-feedback">{this.state.isError.repeatPassword}</span>
+          <span className="invalid-feedback">{this.state.isError.repeatPassword}</span>
           )} 
           </div>
           <div className="signup-button-div">

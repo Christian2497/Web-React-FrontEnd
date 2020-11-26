@@ -1,10 +1,9 @@
 import React from 'react';
 
-
 function Faq() {
     return (
-        <div className="">
-            
+        <div>
+{/* MOBILE VERSION */}
             <div className="accordion mobile-show" id="accordionExample">
             <div className="card faq-card">
                 <div className="card-header" id="headingOne">
@@ -14,7 +13,6 @@ function Faq() {
                     </button>
                 </h2>
                 </div>
-
                 <div id="collapseOne" className="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div className="card-body">
                     This website was made by two Web Developers, Christian Hernández and Marta Camacho, who are sport and programming lovers. This was created during the Covid19 restrictions, having in mind that people cannot do sport at the gym and that we are staying at home more than ever.
@@ -65,6 +63,7 @@ function Faq() {
             </div>
             </div>
 
+{/* DESKTOP VERSION */}
         <div className="desktop-show faq-desktop-container">
         <div>
         <div className="faq-desktop-item">

@@ -52,7 +52,6 @@ class AllExercises extends Component {
         )
       }): null
 
-
       return (
         <div>
           <h1 className="exercise-list-title">Exercise list</h1>

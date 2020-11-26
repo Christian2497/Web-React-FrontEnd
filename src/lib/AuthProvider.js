@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import auth from "./auth-service";
 const { Consumer, Provider } = React.createContext();
 
-//HOC para crear Consumer
 const withAuth = (WrappedComponent) => {
   return class extends Component {
     render() {
@@ -48,7 +47,7 @@ const withAuth = (WrappedComponent) => {
   };
 };
 
-// Provider
+
 class AuthProvider extends Component {
   state = {
     isLoggedin: false,
@@ -66,15 +65,15 @@ class AuthProvider extends Component {
         this.setState({ isLoggedin: false, user: null, isLoading: false })
       );
   }
-  //definimos 3 métodos (relacionados con auth-service.js):
+
   signup = (user) => {
     const { username, email, weight, goal, password, repeatPassword } = user;
     auth
       .signup({ username, email, weight, goal, password, repeatPassword })
-      .then((user) => this.setState({ isLoggedin: true, user }));
-    /* .catch(({ error }) =>
+      .then((user) => this.setState({ isLoggedin: true, user }))
+      .catch(( error ) =>
         this.setState({ message: error.data.statusMessage })
-      ); */
+      ); 
   };
 
   login = async (user) => {
@@ -133,7 +132,7 @@ class AuthProvider extends Component {
     auth
       .editProfile({ userId, username, weight, goal, imgPath })
       .then((user) => this.setState({ isLoggedin: true, user }))
-      .catch((error) => console.log(error, "no se ha podido"));
+      .catch((error) => console.log(error));
   };
 
   deleteVideo = (id) => {

@@ -120,6 +120,7 @@ class Calendar extends Component {
       <div>
         <h1 className="exercise-list-title">Calendar {this.theMonth()}</h1>
         <div className="calendar-container ">
+          
           {/* DESKTOP VERSION */}
 
           <div className="desktop-show desktop-calendar-container">
@@ -326,9 +327,9 @@ class Calendar extends Component {
                     </Link>
                   </td>
                   <td>
-                    <Link
+                  <Link
                       to={`/videos/${this.state.week3.friday.id}`}
-                      className=""
+                      className="calendar-link-no-style"
                     >
                       {this.state.week3.friday.title}
                     </Link>
@@ -696,7 +697,7 @@ class Calendar extends Component {
                         </th>
                       </tr>
                       <tr>
-                        <td className="calendar-back">Friday: Shoulders</td>
+                        <td className="calendar-back calendar-link-no-style">Friday: Shoulders</td>
                       </tr>
                       <tr>
                         <th>

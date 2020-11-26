@@ -17,7 +17,6 @@ import FavouriteExercise from "./pages/Favourite";
 import Calendar from "./pages/Calendar";
 import Faq from "./pages/Faq";
 import FaqP from "./pages/FaqP";
-
 import Footer from "./components/Footer";
 import ExerciseCreated from "./pages/ExerciseCreated";
 
@@ -42,9 +41,7 @@ class App extends Component {
             <PrivateRoute exact path="/videos" component={AllExercises} />
             <PrivateRoute exact path="/calendar" component={Calendar} />
             <PrivateRoute exact path="/videos/:id" component={ExerciseDetails} />
-            {/* <PrivateRoute exact path="/videos/:id/edit" component={} /> */}
             <PrivateRoute exact path="/videos/favourites/:id" component={FavouriteExercise} />
-            {/* <PrivateRoute exact path="/videos/completed/:id" component={} /> */}
           </Switch>
         </div>
         <Footer/>

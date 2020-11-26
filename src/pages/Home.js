@@ -18,7 +18,7 @@ function Home() {
         <div className="carousel-inner">
           <div className="carousel-item active ole">
             <img
-              src="/images/trainersPicture.jpg"
+              src="/images/destThird.jpg"
               className="d-block w-100"
               alt="second slide"
             />
@@ -32,7 +32,7 @@ function Home() {
           </div>
           <div className="carousel-item ole">
             <img
-              src="/images/destThird.jpg"
+              src="/images/deskImage.jpg"
               className="d-block w-100"
               alt="laptop"
             />
@@ -84,7 +84,7 @@ function Home() {
           <span className="sr-only">Next</span>
         </a>
       </div>
-      <div className="container">
+      <div className="home-button-container">
         <div className="boton">
           <button className="button"> <span><Link to="/signup" className="link"> Sign Up </Link> </span></button>
         </div>

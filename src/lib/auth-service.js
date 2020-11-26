@@ -18,7 +18,6 @@ class Auth {
     return this.auth
       .post("/login", { email, password })
       .then(({ data }) =>  data);
-
   }
 
   logout() {

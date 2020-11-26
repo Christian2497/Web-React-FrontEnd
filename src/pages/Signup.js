@@ -10,7 +10,6 @@ class Signup extends Component {
     goal: 0, 
     password: "",
     repeatPassword: "",
-    message: "",
     isError: {
       username: '',
       email: '',
@@ -57,10 +56,6 @@ class Signup extends Component {
     });
   };
 
-  errorMessage = () => {
-      this.setState({ message: "This email already exists. Try another one!"})
-  }
-
   render() {
     const { username, email, weight, goal, password, repeatPassword } = this.state;
     return (
@@ -101,17 +96,13 @@ class Signup extends Component {
           <label>Repeat Password:</label>
           <input type="password" name="repeatPassword" value={repeatPassword} onChange={ e => this.handleChange(e)} placeholder="******" required/>
           {this.state.isError.repeatPassword.length > 0 && (
-                        <span className="invalid-feedback">{this.state.isError.repeatPassword}</span>
+          <span className="invalid-feedback">{this.state.isError.repeatPassword}</span>
           )} 
           </div>
           <div className="signup-button-div">
           <input className="signup-button" type="submit" value="Signup" onClick={this.errorMessage}/>
           </div>
           <p>Already have account? <Link to={"/login"}> Login</Link></p>
-        
-          <div>
-            {this.state.message}
-          </div>
         </form>
 
         

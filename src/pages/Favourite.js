@@ -14,11 +14,11 @@ class FavouriteExercise extends Component {
       await this.setState({ exercises: user.favourite, user })
   }
 
-  delFavExercise = (id) => {
-    const userId = this.props.user._id
-    this.props.deleteFavourite(id);
-    this.props.userInfo(userId);
-    this.props.history.push(`/videos/favourites/${userId}`)
+    delFavExercise = (id) => {
+      const userId = this.props.user._id
+      this.props.deleteFavourite(id);
+      this.props.userInfo(userId);
+      this.props.history.push(`/videos/favourites/${userId}`)
   }
 
     render() {

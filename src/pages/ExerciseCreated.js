@@ -17,6 +17,7 @@ class ExerciseCreated extends Component {
     deleteExercise = (id) => {
       const userId = this.state.user._id
       this.props.deleteVideo(id);
+      this.props.userInfo(userId)
       this.props.history.push(`/profile/${userId}`)
     }
 

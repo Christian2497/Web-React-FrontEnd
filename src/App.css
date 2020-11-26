@@ -1135,7 +1135,6 @@ align-items: center;
 	  background-size: 100%;
 	  background-position: center;
 	  background-repeat: no-repeat;
-	  height: 100vh;
 	  background-size: cover;
   }
 
@@ -1260,6 +1259,10 @@ align-items: center;
 
 @media screen and (min-width: 1200px){
 	.sign-up{
+		height: 100vh;
+	}
+
+	.faq-desktop-container{
 		height: 100vh;
 	}
 }

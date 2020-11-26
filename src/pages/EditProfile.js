@@ -97,7 +97,7 @@ class EditProfile extends Component {
                     <input type="number" name="goal" value={this.state.goal} onChange={ e => this.handleChangeGoal(e)} />
                 </div>
                 <div className="div-photo">
-                <label  for="file-upload" className="custom-file-upload"> 
+                <label htmlFor="file-upload" className="custom-file-upload"> 
                   <i className="fa fa-cloud-upload"></i> Upload your photo
                 </label>
                 <input id="file-upload" type="file" name="imgPath" onChange={ e => this.handleFileUpload(e)}/>

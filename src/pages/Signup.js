@@ -10,7 +10,6 @@ class Signup extends Component {
     goal: 0, 
     password: "",
     repeatPassword: "",
-    message: "",
     isError: {
       username: '',
       email: '',
@@ -56,10 +55,6 @@ class Signup extends Component {
       [name]: value 
     });
   };
-
-  errorMessage = () => {
-      this.setState({ message: "This email already exists. Try another one!"})
-  }
 
   render() {
     const { username, email, weight, goal, password, repeatPassword } = this.state;
@@ -108,10 +103,6 @@ class Signup extends Component {
           <input className="signup-button" type="submit" value="Signup" onClick={this.errorMessage}/>
           </div>
           <p>Already have account? <Link to={"/login"}> Login</Link></p>
-        
-          <div>
-            {this.state.message}
-          </div>
         </form>
 
         
